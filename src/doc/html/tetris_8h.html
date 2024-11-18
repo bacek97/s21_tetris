@@ -148,7 +148,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>userInput</b> (<a cla
 <a class="el" href="struct_game_info__t.html">GameInfo_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>updateCurrentState</b> ()</td></tr>
 <tr class="separator:afd5762991a9248a0b4192983fd786a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b210d72c9b6e6f1274d82085ae7c4d5" id="r_a4b210d72c9b6e6f1274d82085ae7c4d5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b210d72c9b6e6f1274d82085ae7c4d5">updateFsmPtr</a> (const uintptr_t WhoInit)</td></tr>
-<tr class="memdesc:a4b210d72c9b6e6f1274d82085ae7c4d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Главная функция программы.  <br /></td></tr>
+<tr class="memdesc:a4b210d72c9b6e6f1274d82085ae7c4d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция переключающая состояние конечного автомата.  <br /></td></tr>
 <tr class="separator:a4b210d72c9b6e6f1274d82085ae7c4d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
@@ -229,7 +229,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>userInput</b> (<a cla
       </table>
 </div><div class="memdoc">
 
-<p>Главная функция программы. </p>
+<p>Функция переключающая состояние конечного автомата. </p>
 <div class="fragment"><div class="line"><span class="keywordtype">bool</span> <a class="code hl_function" href="#a4b210d72c9b6e6f1274d82085ae7c4d5">updateFsmPtr</a>(<span class="keyword">const</span> uintptr_t WhoInit) {</div>
 <div class="line">  <span class="keyword">enum</span> states *cur_state = &amp;staticPtrTetInfo()-&gt;fsm_state;</div>
 <div class="line">  <span class="keywordtype">bool</span> not_switched = <span class="keyword">true</span>;</div>
@@ -258,7 +258,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>userInput</b> (<a cla
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">return</span> not_switched;</div>
 <div class="line">}</div>
-</div><!-- fragment --> 
+</div><!-- fragment --> <dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">WhoInit</td><td>Адрес функции вызвавшей запрос на мену состояния </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Возвращает false в случае если запрашиваемый переход не был найден в белом списке и соответственно не была произведена смена состояния </dd></dl>
+
 </div>
 </div>
 </div><!-- contents -->

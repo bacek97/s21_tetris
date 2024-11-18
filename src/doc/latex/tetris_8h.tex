@@ -8,7 +8,8 @@
 {\ttfamily \#include $<$brick\+\_\+game/brickgame.\+h$>$}\newline
 {\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$pthread.\+h$>$}\newline
-Граф включаемых заголовочных файлов для tetris.\+h\+:\nopagebreak
+Граф включаемых заголовочных файлов для tetris.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -46,7 +47,7 @@ void {\bfseries user\+Input} (\mbox{\hyperlink{brickgame_8h_a7ba289d7b97db30e0b7
 \mbox{\hyperlink{struct_game_info__t}{Game\+Info\+\_\+t}} {\bfseries update\+Current\+State} ()
 \item 
 bool \mbox{\hyperlink{tetris_8h_a4b210d72c9b6e6f1274d82085ae7c4d5}{update\+Fsm\+Ptr}} (const uintptr\+\_\+t Who\+Init)
-\begin{DoxyCompactList}\small\item\em Главная функция программы. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Функция переключающая состояние конечного автомата. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Подробное описание}
@@ -105,7 +106,7 @@ bool update\+Fsm\+Ptr (\begin{DoxyParamCaption}\item[{const uintptr\+\_\+t}]{Who
 
 
 
-Главная функция программы. 
+Функция переключающая состояние конечного автомата. 
 
 
 \begin{DoxyCodeInclude}{0}
@@ -140,3 +141,10 @@ bool update\+Fsm\+Ptr (\begin{DoxyParamCaption}\item[{const uintptr\+\_\+t}]{Who
 
 \end{DoxyCodeInclude}
  
+\begin{DoxyParams}{Аргументы}
+{\em Who\+Init} & Адрес функции вызвавшей запрос на мену состояния \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Возвращает false в случае если запрашиваемый переход не был найден в белом списке и соответственно не была произведена смена состояния 
+\end{DoxyReturn}

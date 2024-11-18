@@ -99,11 +99,15 @@ GameInfo_t updateCurrentState();
   typedef unsigned long long uintptr_t;
 #endif /* _UINTPTR_T_DEFINED */
 
-// /*!
-//  * @brief Главная функция программы.
-//  * 
-//  *  \snippet brick_game/tetris/tetris.c Adding a resource
-//  */
+/*!
+ * @brief Функция переключающая состояние конечного автомата.
+ * 
+ * \snippet brick_game/tetris/tetris.c Adding a resource
+ * @param WhoInit Адрес функции вызвавшей запрос на мену состояния
+ * @return Возвращает false в случае если запрашиваемый переход 
+ * не был найден в белом списке и соответственно
+ * не была произведена смена состояния
+ */
 bool updateFsmPtr(const uintptr_t WhoInit);
 
 #endif  // C7_BRICKGAME_TETRIS_TETRIS_H
