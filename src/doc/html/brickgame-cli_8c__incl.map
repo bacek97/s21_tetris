@@ -1,0 +1,9 @@
+<map id="gui/cli/brickgame&#45;cli.c" name="gui/cli/brickgame&#45;cli.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="116,5,264,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,84,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="166,35,85,75,82,70,163,30"/>
+<area shape="rect" id="Node000003" href="$brickgame_8h.html" title="Каждая библиотека с игрой должна иметь функции: userInput принимающую на вход пользовательское действ..." alt="" coords="108,80,272,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="192,33,192,64,187,64,187,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="296,80,356,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,30,290,70,287,75,212,35"/>
+</map>

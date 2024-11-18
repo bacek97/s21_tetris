@@ -106,13 +106,13 @@ $(function(){initNavTree('tetris_8h.html',''); initResizable(true); });
 
 <p>Диаграмма переходов состояния FSM:  
 <a href="#details">Подробнее...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="brickgame_8h_source.html">brick_game/brickgame.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="brickgame_8h_source.html">brick_game/brickgame.h</a>&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;pthread.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Граф включаемых заголовочных файлов для tetris.h:</div>
 <div class="dyncontent">
-<div class="center"><!-- SVG 0 --></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="tetris_8h__incl.svg" width="372" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <p><a href="tetris_8h_source.html">См. исходные тексты.</a></p>
@@ -129,11 +129,8 @@ $(function(){initNavTree('tetris_8h.html',''); initResizable(true); });
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_LEVEL</b>&#160;&#160;&#160;10</td></tr>
 <tr class="memdesc:a5bb4257ca9fa4bfcf9391b7895b97761"><td class="mdescLeft">&#160;</td><td class="mdescRight">Максимальное количество уровней — 10. <br /></td></tr>
 <tr class="separator:a5bb4257ca9fa4bfcf9391b7895b97761"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3024ccd4a9af5109d24e6c57565d74a1" id="r_a3024ccd4a9af5109d24e6c57565d74a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3024ccd4a9af5109d24e6c57565d74a1">_POSIX_C_SOURCE</a>&#160;&#160;&#160;199309L</td></tr>
-<tr class="memdesc:a3024ccd4a9af5109d24e6c57565d74a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Главная функция программы.  <br /></td></tr>
-<tr class="separator:a3024ccd4a9af5109d24e6c57565d74a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a106239fcf6108905a1beb6837f7343c8" id="r_a106239fcf6108905a1beb6837f7343c8"><td class="memItemLeft" align="right" valign="top"><a id="a106239fcf6108905a1beb6837f7343c8" name="a106239fcf6108905a1beb6837f7343c8"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>_UINTPTR_T_DEFINED</b></td></tr>
+<tr class="memitem:a106239fcf6108905a1beb6837f7343c8" id="r_a106239fcf6108905a1beb6837f7343c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a106239fcf6108905a1beb6837f7343c8">_UINTPTR_T_DEFINED</a></td></tr>
+<tr class="memdesc:a106239fcf6108905a1beb6837f7343c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Главная функция программы.  <br /></td></tr>
 <tr class="separator:a106239fcf6108905a1beb6837f7343c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
@@ -153,61 +150,58 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>userInput</b> (<a cla
 <tr class="memitem:afd5762991a9248a0b4192983fd786a8f" id="r_afd5762991a9248a0b4192983fd786a8f"><td class="memItemLeft" align="right" valign="top"><a id="afd5762991a9248a0b4192983fd786a8f" name="afd5762991a9248a0b4192983fd786a8f"></a>
 <a class="el" href="struct_game_info__t.html">GameInfo_t</a>&#160;</td><td class="memItemRight" valign="bottom"><b>updateCurrentState</b> ()</td></tr>
 <tr class="separator:afd5762991a9248a0b4192983fd786a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa743128a071a844d15a88e1603a6f408" id="r_aa743128a071a844d15a88e1603a6f408"><td class="memItemLeft" align="right" valign="top"><a id="aa743128a071a844d15a88e1603a6f408" name="aa743128a071a844d15a88e1603a6f408"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateFsmPtr</b> (const uintptr_t who_init)</td></tr>
-<tr class="separator:aa743128a071a844d15a88e1603a6f408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b210d72c9b6e6f1274d82085ae7c4d5" id="r_a4b210d72c9b6e6f1274d82085ae7c4d5"><td class="memItemLeft" align="right" valign="top"><a id="a4b210d72c9b6e6f1274d82085ae7c4d5" name="a4b210d72c9b6e6f1274d82085ae7c4d5"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>updateFsmPtr</b> (const uintptr_t WhoInit)</td></tr>
+<tr class="separator:a4b210d72c9b6e6f1274d82085ae7c4d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Диаграмма переходов состояния FSM: </p>
 <p>Диаграмма требующая для отображения HAVE_DOT = YES </p><div class="dotgraph">
-</div>
+<iframe scrolling="no" frameborder="0" src="dot_inline_dotgraph_1.svg" width="2422" height="330"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <p>Диаграмма требующая для отображения указания пути к файлу PLANTUML_JAR_PATH = plantuml-1.2024.7.jar </p><div class="plantumlgraph">
 <object type="image/svg+xml" data="inline_umlgraph_1.svg"></object>
 </div>
  </div><h2 class="groupheader">Макросы</h2>
-<a id="a3024ccd4a9af5109d24e6c57565d74a1" name="a3024ccd4a9af5109d24e6c57565d74a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3024ccd4a9af5109d24e6c57565d74a1">&#9670;&#160;</a></span>_POSIX_C_SOURCE</h2>
+<a id="a106239fcf6108905a1beb6837f7343c8" name="a106239fcf6108905a1beb6837f7343c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a106239fcf6108905a1beb6837f7343c8">&#9670;&#160;</a></span>_UINTPTR_T_DEFINED</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define _POSIX_C_SOURCE&#160;&#160;&#160;199309L</td>
+          <td class="memname">#define _UINTPTR_T_DEFINED</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Главная функция программы. </p>
-<div class="fragment"><div class="line"><span class="keywordtype">bool</span> updateFsmPtr(<span class="keyword">const</span> uintptr_t who_init) {</div>
-<div class="line">    <span class="comment">// printf(&quot;updateFsmPtr (%p)\n&quot;, who_init);</span></div>
-<div class="line">  void (**cur_state)() = &amp;static_ptr_tetInfo()-&gt;fsm_func_ptr;</div>
-<div class="line">    <span class="keywordtype">bool</span> err = <span class="keyword">true</span>;</div>
+<div class="fragment"><div class="line"><span class="keywordtype">bool</span> updateFsmPtr(<span class="keyword">const</span> uintptr_t WhoInit) {</div>
+<div class="line">  <span class="keyword">enum</span> states *cur_state = &amp;staticPtrTetInfo()-&gt;fsm_state;</div>
+<div class="line">  <span class="keywordtype">bool</span> not_switched = <span class="keyword">true</span>;</div>
 <div class="line">  <span class="keyword">struct </span>{</div>
-<div class="line">    void (*src)();</div>
-<div class="line">    void (*dst)();</div>
+<div class="line">    <span class="keyword">enum</span> states src;</div>
+<div class="line">    <span class="keyword">enum</span> states dst;</div>
 <div class="line">    uintptr_t sgn;</div>
-<div class="line">  } arr[] = {{NULL,             splashscr_thr,   (uintptr_t)&amp;init_thr},</div>
-<div class="line">             {splashscr_thr,    unloading_thr,   (uintptr_t)&amp;userInputTerminate},</div>
-<div class="line">             {splashscr_thr,    unloading_thr,   (uintptr_t)&amp;userInputTerminateLeft},</div>
-<div class="line">             {moving_thr,       unloading_thr,   (uintptr_t)&amp;userInputTerminate},</div>
-<div class="line">             {pause_thr,        unloading_thr,   (uintptr_t)&amp;userInputTerminate},</div>
-<div class="line">             {pause_thr,        moving_thr,      (uintptr_t)&amp;userInputPause},</div>
-<div class="line">             {pause_thr,        moving_thr,      (uintptr_t)&amp;pause_thr},</div>
-<div class="line">             {splashscr_thr,    moving_thr,      (uintptr_t)&amp;userInputStart},</div>
-<div class="line">             {moving_thr,       shifting_thr,    (uintptr_t)&amp;switcher},</div>
-<div class="line">             {shifting_thr,     moving_thr,      (uintptr_t)&amp;shifting_thr},</div>
-<div class="line">             {moving_thr,       pause_thr,       (uintptr_t)&amp;userInputPause},</div>
-<div class="line">             {shifting_thr,     splashscr_thr,   (uintptr_t)&amp;checkGameover},</div>
-<div class="line">             };</div>
+<div class="line">  } arr[] = {</div>
+<div class="line">      {StateNull, StateSplashScr, (uintptr_t)&amp;initThr},</div>
+<div class="line">      {StateSplashScr, StateUnloading, (uintptr_t)&amp;userInputTerminate},</div>
+<div class="line">      {StateSplashScr, StateUnloading, (uintptr_t)&amp;userInputTerminateLeft},</div>
+<div class="line">      {StateMoving, StateUnloading, (uintptr_t)&amp;userInputTerminate},</div>
+<div class="line">      {StatePaused, StateUnloading, (uintptr_t)&amp;userInputTerminate},</div>
+<div class="line">      {StatePaused, StateMoving, (uintptr_t)&amp;userInputPause},</div>
+<div class="line">      {StateMoving, StatePaused, (uintptr_t)&amp;userInputPause},</div>
+<div class="line">      {StateSplashScr, StateMoving, (uintptr_t)&amp;userInputStart},</div>
+<div class="line">      {StateMoving, StateSplashScr, (uintptr_t)&amp;shifting},</div>
+<div class="line">  };</div>
 <div class="line"> </div>
-<div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; (int)<a class="code hl_define" href="#ae1d546a69a064327b6e6e6755f0803a4">NELEMS</a>(arr); i++)</div>
-<div class="line">    <span class="keywordflow">if</span> ((*cur_state == arr[i].src &amp;&amp; arr[i].sgn == who_init)) {</div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; (int)<a class="code hl_define" href="#ae1d546a69a064327b6e6e6755f0803a4">NELEMS</a>(arr) &amp;&amp; not_switched; i++) {</div>
+<div class="line">    <span class="keywordflow">if</span> ((*cur_state == arr[i].src &amp;&amp; arr[i].sgn == WhoInit)) {</div>
 <div class="line">      *cur_state = arr[i].dst;</div>
-<div class="line">            err = <span class="keyword">false</span>;</div>
-<div class="line">    <span class="comment">// printf(&quot;updateFsmPtr src:%p, dst:%p, sgn:%p,  \n&quot;, arr[i].src, arr[i].dst, arr[i].sgn);</span></div>
-<div class="line">        }</div>
+<div class="line">      not_switched = <span class="keyword">false</span>;</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
 <div class="line"> </div>
-<div class="line">  <span class="keywordflow">return</span> err;</div>
+<div class="line">  <span class="keywordflow">return</span> not_switched;</div>
 <div class="line">}</div>
 </div><!-- fragment --> 
 </div>

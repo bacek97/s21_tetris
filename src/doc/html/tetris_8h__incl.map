@@ -1,0 +1,9 @@
+<map id="brick_game/tetris/tetris.h" name="brick_game/tetris/tetris.h">
+<area shape="rect" id="Node000001" title="Диаграмма переходов состояния FSM:" alt="" coords="147,5,312,32"/>
+<area shape="rect" id="Node000002" href="$brickgame_8h.html" title="Каждая библиотека с игрой должна иметь функции: userInput принимающую на вход пользовательское действ..." alt="" coords="5,80,169,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="206,35,127,75,124,70,204,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="192,80,267,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="232,33,232,64,227,64,227,33"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="291,80,366,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="248,30,301,69,298,73,245,35"/>
+</map>

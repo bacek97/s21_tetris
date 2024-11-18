@@ -1,11 +1,11 @@
 var indexSectionsWithContent =
 {
-  0: "_bdfgmnstuабзикпрстця",
+  0: "_bdfglmnstuабзикпрстця",
   1: "g",
   2: "bt",
   3: "fn",
   4: "u",
-  5: "_bfmns",
+  5: "_bflmns",
   6: "d"
 };
 

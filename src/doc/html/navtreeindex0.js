@@ -2,7 +2,7 @@ var NAVTREEINDEX0 =
 {
 "annotated.html":[1,0],
 "brickgame-cli_8c.html":[2,0,1,0,0],
-"brickgame-cli_8c.html#a26d3a4745cd91df7b42c282fb5a2f2ca":[2,0,1,0,0,0],
+"brickgame-cli_8c.html#aeebd3a4be25b2a163b0cf7dbdb32b5d2":[2,0,1,0,0,0],
 "brickgame_8h.html":[2,0,0,1],
 "brickgame_8h.html#a2236597a72ae14696ccc6a09fb4fc5af":[2,0,0,1,4],
 "brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9":[2,0,0,1,5],
@@ -42,7 +42,7 @@ var NAVTREEINDEX0 =
 "struct_game_info__t.html#ab897112aa413eac6657970ef2a873026":[1,0,0,1],
 "struct_game_info__t.html#adf83a667bbdb2ab6f7110b4f394bb294":[1,0,0,0],
 "tetris_8h.html":[2,0,0,0,0],
-"tetris_8h.html#a3024ccd4a9af5109d24e6c57565d74a1":[2,0,0,0,0,0],
+"tetris_8h.html#a106239fcf6108905a1beb6837f7343c8":[2,0,0,0,0,0],
 "tetris_8h.html#a5bb4257ca9fa4bfcf9391b7895b97761":[2,0,0,0,0,2],
 "tetris_8h.html#a96a9822fa134450197dd454b1478a193":[2,0,0,0,0,1],
 "tetris_8h.html#aaaa64d845c368f09c9d9eeea09e898d5":[2,0,0,0,0,4],

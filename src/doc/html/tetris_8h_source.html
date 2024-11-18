@@ -99,58 +99,54 @@ $(function(){initNavTree('tetris_8h_source.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">tetris.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="tetris_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * ------------------------------------------------------------</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * &quot;THE Cola-WARE LICENSE&quot; (Revision 21):</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * &lt;liliammo@student.21-school.ru&gt; wrote this code.</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * As long as you complies with Google Style guidelines,</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * you can do whatever you want with this stuff. If we meet</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * someday, and you think this stuff is worth it,</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * you can buy me a Cola in return.              Vasilii Kostin</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * ------------------------------------------------------------</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#ifndef C7_BRICKGAME_BRICK_GAME_TETRIS_TETRIS_H_</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#define C7_BRICKGAME_BRICK_GAME_TETRIS_TETRIS_H_</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#include &quot;<a class="code" href="brickgame_8h.html">brick_game/brickgame.h</a>&quot;</span></div>
+<a href="tetris_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/* -------------------&quot;THE Cola-WARE LICENSE&quot; (Revision 21):-------------------</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * &lt;liliammo@student.21-school.ru&gt; wrote this code.</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * As long as you complies with Google Style guidelines, you can do whatever </span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * you want with this stuff. If we meet someday, and you think this stuff is</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * worth it, you can buy me a Cola in return.                    Vasilii Kostin</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * ------------------------------------------------------------------------- */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#ifndef C7_BRICKGAME_BRICK_GAME_TETRIS_TETRIS_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#define C7_BRICKGAME_BRICK_GAME_TETRIS_TETRIS_H</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="preprocessor">#include &lt;<a class="code" href="brickgame_8h.html">brick_game/brickgame.h</a>&gt;</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keywordtype">void</span> userInput(<a class="code hl_enumeration" href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">UserAction_t</a> action, <span class="keywordtype">bool</span> hold);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><a class="code hl_struct" href="struct_game_info__t.html">GameInfo_t</a> updateCurrentState();</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">void</span> userInput(<a class="code hl_enumeration" href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">UserAction_t</a> action, <span class="keywordtype">bool</span> hold);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><a class="code hl_struct" href="struct_game_info__t.html">GameInfo_t</a> updateCurrentState();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="tetris_8h.html#ae1d546a69a064327b6e6e6755f0803a4">   72</a></span><span class="preprocessor">#define NELEMS(a) (sizeof(a) / sizeof((a)[0]))</span></div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="tetris_8h.html#ae1d546a69a064327b6e6e6755f0803a4">   76</a></span><span class="preprocessor">#define NELEMS(a) (sizeof(a) / sizeof((a)[0]))</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="tetris_8h.html#a96a9822fa134450197dd454b1478a193">   85</a></span><span class="preprocessor">#define BONUS 0, 1, 3, 7, 15</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="tetris_8h.html#a96a9822fa134450197dd454b1478a193">   81</a></span><span class="preprocessor">#define BONUS 0, 1, 3, 7, 15</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="tetris_8h.html#aaaa64d845c368f09c9d9eeea09e898d5">   85</a></span><span class="preprocessor">#define SCORES_IN_LEVEL 6</span></div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="tetris_8h.html#aaaa64d845c368f09c9d9eeea09e898d5">   89</a></span><span class="preprocessor">#define SCORES_IN_LEVEL 6</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="tetris_8h.html#a5bb4257ca9fa4bfcf9391b7895b97761">   88</a></span><span class="preprocessor">#define MAX_LEVEL 10</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="tetris_8h.html#a5bb4257ca9fa4bfcf9391b7895b97761">   92</a></span><span class="preprocessor">#define MAX_LEVEL 10</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#endif  </span><span class="comment">// C7_BRICKGAME_BRICK_GAME_TETRIS_TETRIS_H_</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*ThreadFunc_t)(<span class="keywordtype">void</span> *);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">// /*!</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">//  * @brief Главная функция программы.</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">//  * </span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">//  *  \snippet brick_game/tetris/tetris.c Adding a resource</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">//  */</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="tetris_8h.html#a3024ccd4a9af5109d24e6c57565d74a1">  104</a></span><span class="preprocessor">#define _POSIX_C_SOURCE 199309L  </span><span class="comment">// POSIX.1b: Real-time extensions</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">// #include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="preprocessor">#ifndef _UINTPTR_T_DEFINED</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#define _UINTPTR_T_DEFINED</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#undef uintptr_t</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> uintptr_t;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="preprocessor">#endif </span><span class="comment">/* _UINTPTR_T_DEFINED */</span><span class="preprocessor"></span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keywordtype">bool</span> updateFsmPtr(<span class="keyword">const</span> uintptr_t who_init);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">typedef</span> <span class="keywordtype">void</span> *(*ThreadFunc_t)(<span class="keywordtype">void</span> *);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">// /*!</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">//  * @brief Главная функция программы.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">//  * </span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">//  *  \snippet brick_game/tetris/tetris.c Adding a resource</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">//  */</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">// #define _POSIX_C_SOURCE 199309L  // POSIX.1b: Real-time extensions</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#include &lt;pthread.h&gt;</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">// #include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="preprocessor">#ifndef _UINTPTR_T_DEFINED</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="tetris_8h.html#a106239fcf6108905a1beb6837f7343c8">  103</a></span><span class="preprocessor">#define _UINTPTR_T_DEFINED</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="preprocessor">#undef uintptr_t</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  <span class="keyword">typedef</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> uintptr_t;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#endif </span><span class="comment">/* _UINTPTR_T_DEFINED */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <span class="keywordtype">bool</span> updateFsmPtr(<span class="keyword">const</span> uintptr_t WhoInit);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="preprocessor">#endif  </span><span class="comment">// C7_BRICKGAME_TETRIS_TETRIS_H</span></div>
 <div class="ttc" id="abrickgame_8h_html"><div class="ttname"><a href="brickgame_8h.html">brickgame.h</a></div><div class="ttdoc">Каждая библиотека с игрой должна иметь функции: userInput принимающую на вход пользовательское действ...</div></div>
-<div class="ttc" id="abrickgame_8h_html_a7ba289d7b97db30e0b7041ca2cef75a9"><div class="ttname"><a href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">UserAction_t</a></div><div class="ttdeci">UserAction_t</div><div class="ttdoc">У консоли имеется восемь физических кнопок: начало игры, пауза, завершение игры, действие и четыре ст...</div><div class="ttdef"><b>Definition</b> brickgame.h:53</div></div>
-<div class="ttc" id="astruct_game_info__t_html"><div class="ttname"><a href="struct_game_info__t.html">GameInfo_t</a></div><div class="ttdef"><b>Definition</b> brickgame.h:72</div></div>
+<div class="ttc" id="abrickgame_8h_html_a7ba289d7b97db30e0b7041ca2cef75a9"><div class="ttname"><a href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">UserAction_t</a></div><div class="ttdeci">UserAction_t</div><div class="ttdoc">У консоли имеется восемь физических кнопок: начало игры, пауза, завершение игры, действие и четыре ст...</div><div class="ttdef"><b>Definition</b> brickgame.h:50</div></div>
+<div class="ttc" id="astruct_game_info__t_html"><div class="ttname"><a href="struct_game_info__t.html">GameInfo_t</a></div><div class="ttdef"><b>Definition</b> brickgame.h:69</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

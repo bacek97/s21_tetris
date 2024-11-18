@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nelems_0',['NELEMS',['../tetris_8h.html#ae1d546a69a064327b6e6e6755f0803a4',1,'tetris.h']]]
+  ['max_5flevel_0',['MAX_LEVEL',['../tetris_8h.html#a5bb4257ca9fa4bfcf9391b7895b97761',1,'tetris.h']]]
 ];

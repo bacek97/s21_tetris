@@ -113,26 +113,23 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <li>Реализовать эмулятор игровой приставки "Brick Game", способный динамически загружать различные библотеки с играми.</li>
 </ol>
 <p>Для унификации игр управление в них должно быть основано на функциях <code>userInput(UserAction_t,bool)</code> и <code>updateCurrentState()</code>:</p>
-<div class="fragment"><div class="line"><span class="comment">/*</span></div>
-<div class="line"><span class="comment"> * ------------------------------------------------------------</span></div>
-<div class="line"><span class="comment"> * &quot;THE Cola-WARE LICENSE&quot; (Revision 21):</span></div>
+<div class="fragment"><div class="line"><span class="comment">/* -------------------&quot;THE Cola-WARE LICENSE&quot; (Revision 21):-------------------</span></div>
 <div class="line"><span class="comment"> * &lt;liliammo@student.21-school.ru&gt; wrote this code.</span></div>
-<div class="line"><span class="comment"> * As long as you complies with Google Style guidelines,</span></div>
-<div class="line"><span class="comment"> * you can do whatever you want with this stuff. If we meet</span></div>
-<div class="line"><span class="comment"> * someday, and you think this stuff is worth it,</span></div>
-<div class="line"><span class="comment"> * you can buy me a Cola in return.              Vasilii Kostin</span></div>
-<div class="line"><span class="comment"> * ------------------------------------------------------------</span></div>
-<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="comment"> * As long as you complies with Google Style guidelines, you can do whatever </span></div>
+<div class="line"><span class="comment"> * you want with this stuff. If we meet someday, and you think this stuff is</span></div>
+<div class="line"><span class="comment"> * worth it, you can buy me a Cola in return.                    Vasilii Kostin</span></div>
+<div class="line"><span class="comment"> * ------------------------------------------------------------------------- */</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// foo/src/bar/baz.h</span></div>
 <div class="line"><span class="comment">// #ifndef FOO_BAR_BAZ_H_</span></div>
-<div class="line"><span class="preprocessor">#ifndef C7_BRICKGAME_BRICK_GAME_BRICKGAME_H_</span></div>
-<div class="line"><span class="preprocessor">#define C7_BRICKGAME_BRICK_GAME_BRICKGAME_H_</span></div>
+<div class="line"><span class="preprocessor">#ifndef C7_BRICKGAME_BRICKGAME_H</span></div>
+<div class="line"><span class="preprocessor">#define C7_BRICKGAME_BRICKGAME_H</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#define FIELD_ROWS 20  </span></div>
 <div class="line"><span class="preprocessor">#define FIELD_COLS 10  </span></div>
 <div class="line"><span class="preprocessor">#define FNEXT_ROWS 4  </span></div>
 <div class="line"><span class="preprocessor">#define FNEXT_COLS 4  </span></div>
+<div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
 <div class="line">  Start,      <span class="comment">// f1</span></div>
@@ -163,32 +160,37 @@ $(function(){initNavTree('index.html',''); initResizable(true); });
 <div class="line">  <span class="keywordtype">int</span> pause;</div>
 <div class="line">} <a class="code hl_struct" href="struct_game_info__t.html">GameInfo_t</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#endif  </span><span class="comment">// C7_BRICKGAME_BRICK_GAME_BRICKGAME_H_</span></div>
-<div class="ttc" id="abrickgame_8h_html_a7ba289d7b97db30e0b7041ca2cef75a9"><div class="ttname"><a href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">UserAction_t</a></div><div class="ttdeci">UserAction_t</div><div class="ttdoc">У консоли имеется восемь физических кнопок: начало игры, пауза, завершение игры, действие и четыре ст...</div><div class="ttdef"><b>Definition</b> brickgame.h:53</div></div>
-<div class="ttc" id="astruct_game_info__t_html"><div class="ttname"><a href="struct_game_info__t.html">GameInfo_t</a></div><div class="ttdef"><b>Definition</b> brickgame.h:72</div></div>
+<div class="line"><span class="preprocessor">#endif  </span><span class="comment">// C7_BRICKGAME_BRICKGAME_H</span></div>
+<div class="ttc" id="abrickgame_8h_html_a7ba289d7b97db30e0b7041ca2cef75a9"><div class="ttname"><a href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">UserAction_t</a></div><div class="ttdeci">UserAction_t</div><div class="ttdoc">У консоли имеется восемь физических кнопок: начало игры, пауза, завершение игры, действие и четыре ст...</div><div class="ttdef"><b>Definition</b> brickgame.h:50</div></div>
+<div class="ttc" id="astruct_game_info__t_html"><div class="ttname"><a href="struct_game_info__t.html">GameInfo_t</a></div><div class="ttdef"><b>Definition</b> brickgame.h:69</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
 Google style</h1>
-<p>В Google Style Guide для C++ и C рекомендации по стилю именования следующие:</p>
-<ul>
-<li>File Names: lower_case_with_underscores_or-dashes.cc</li>
-<li>Struct Data Members: snake_case</li>
-<li>Variable Names: snake_case</li>
-<li>Function Names: PascalCase</li>
-<li>Type Names: PascalCase</li>
-<li>Constant Names: kPrefixFollowedByMixedCase</li>
-<li>Enumerator Names: UPPER_CASE_WITH_UNDERSCORES</li>
-<li>Macro Names: UPPER_CASE_WITH_UNDERSCORES</li>
-<li>Namespace Names: snake_case</li>
-<li>Concept Names: PascalCase</li>
-<li>Class Data Members: snake_case_with_a_trailing_underscore_</li>
+<p>В Google Style Guide для C++ и C рекомендации по стилю именования следующие:</p><ul>
+<li>Every file should contain license boilerplate</li>
+<li>All header files should have #define guards to prevent multiple inclusion. The format of the symbol name should be &lt;PROJECT&gt;_&lt;PATH&gt;_&lt;FILE&gt;<em>H</em></li>
+<li>VariableCase: lower_case</li>
+<li>FunctionCase: CamelCase</li>
+<li>TypedefCase: CamelCase</li>
+<li>ConstantCase: CamelCase</li>
+<li>EnumConstantCase: CamelCase</li>
+<li>ConstantPrefix: k</li>
+<li>EnumConstantPrefix: k</li>
+<li>MacroDefinitionCase: UPPER_CASE</li>
+<li>NamespaceCase: lower_case</li>
+<li>ConceptCase: CamelCase</li>
+<li>MemberCase: lower_case</li>
+<li>ClassMemberSuffix: _</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md3"></a>
 Примечания</h1>
 <h2><a class="anchor" id="autotoc_md4"></a>
 При разработке я придерживался Google Style Guide со следующими изменениями:</h2>
 <ul>
-<li>Function Names: lowerCamelCase <code>updateCurrentState()</code></li>
-<li>Type Names: PascalCaseWithATrailing_t <code>UserAction_t</code></li>
+<li>The format of the header files #define guards is equal to MacroDefinitionCase: UPPER_CASE and</li>
+<li>FunctionCase: camelBack</li>
+<li>ConstantPrefix: ''</li>
+<li>EnumConstantPrefix: ''</li>
+<li>TypedefSuffix: _t</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md5"></a>
 Библиотека игры тетрис реализована с использованием конечного автомата:</h2>

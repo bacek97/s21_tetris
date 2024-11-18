@@ -2,56 +2,53 @@
 \label{brickgame_8h_source}\index{brick\_game/brickgame.h@{brick\_game/brickgame.h}}
 \mbox{\hyperlink{brickgame_8h}{См. документацию.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
-\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ "{}THE\ Cola-\/WARE\ LICENSE"{}\ (Revision\ 21):}}
-\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ <liliammo@student.21-\/school.ru>\ wrote\ this\ code.}}
-\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ As\ long\ as\ you\ complies\ with\ Google\ Style\ guidelines,}}
-\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ you\ can\ do\ whatever\ you\ want\ with\ this\ stuff.\ If\ we\ meet}}
-\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ someday,\ and\ you\ think\ this\ stuff\ is\ worth\ it,}}
-\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ you\ can\ buy\ me\ a\ Cola\ in\ return.\ \ \ \ \ \ \ \ \ \ \ \ \ \ Vasilii\ Kostin}}
-\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
-\DoxyCodeLine{00010\ \textcolor{comment}{\ */}}
-\DoxyCodeLine{00011\ }
-\DoxyCodeLine{00038\ \textcolor{comment}{//\ foo/src/bar/baz.h}}
-\DoxyCodeLine{00039\ \textcolor{comment}{//\ \#ifndef\ FOO\_BAR\_BAZ\_H\_}}
-\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#ifndef\ C7\_BRICKGAME\_BRICK\_GAME\_BRICKGAME\_H\_}}
-\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ C7\_BRICKGAME\_BRICK\_GAME\_BRICKGAME\_H\_}}
-\DoxyCodeLine{00042\ }
-\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ FIELD\_ROWS\ 20\ \ }}
-\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ FIELD\_COLS\ 10\ \ }}
-\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ FNEXT\_ROWS\ 4\ \ }}
-\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ FNEXT\_COLS\ 4\ \ }}
-\DoxyCodeLine{00047\ }
-\DoxyCodeLine{00053\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
-\DoxyCodeLine{00054\ \ \ Start,\ \ \ \ \ \ \textcolor{comment}{//\ f1}}
-\DoxyCodeLine{00055\ \ \ Pause,\ \ \ \ \ \ \textcolor{comment}{//\ f2}}
-\DoxyCodeLine{00056\ \ \ Terminate,\ \ \textcolor{comment}{//\ f3}}
-\DoxyCodeLine{00057\ \ \ Left,\ \ \ \ \ \ \ \textcolor{comment}{//\ 3}}
-\DoxyCodeLine{00058\ \ \ Right,\ \ \ \ \ \ \textcolor{comment}{//\ 4}}
-\DoxyCodeLine{00059\ \ \ Up,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ none}}
-\DoxyCodeLine{00060\ \ \ Down,\ \ \ \ \ \ \ \textcolor{comment}{//\ падение}}
-\DoxyCodeLine{00061\ \ \ Action\ \ \ \ \ \ \textcolor{comment}{//\ rotate\ \ //\ 7}}
-\DoxyCodeLine{00062\ \}\ UserAction\_t;}
-\DoxyCodeLine{00063\ }
-\DoxyCodeLine{00064\ \textcolor{comment}{/*!**********************************************************}}
-\DoxyCodeLine{00065\ \textcolor{comment}{\ *\ Игровое\ поле\ представляется\ как\ матрица\ размерностью\ десять\ на\ двадцать.}}
-\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ Каждый\ элемент\ матрицы\ соответствует\ "{}пикселю"{}\ игрового\ поля\ и\ может}}
-\DoxyCodeLine{00067\ \textcolor{comment}{\ *\ находится\ в\ одном\ из\ двух\ состояний:\ пустой\ и\ заполненный.\ Кроме\ игрового}}
-\DoxyCodeLine{00068\ \textcolor{comment}{\ *\ поля\ у\ каждой\ игры\ есть\ дополнительная\ информация,\ которая\ выводится\ в}}
-\DoxyCodeLine{00069\ \textcolor{comment}{\ *\ боковой\ панели\ справа\ от\ игрового\ поля.\ Для\ дополнительной\ информации,\ не}}
-\DoxyCodeLine{00070\ \textcolor{comment}{\ *\ используемой\ во\ время\ игры,\ предусмотреть\ заглушки.}}
-\DoxyCodeLine{00071\ \textcolor{comment}{\ ************************************************************/}}
-\DoxyCodeLine{00072\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
-\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{int}\ **field;\ \ }
-\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{int}\ **next;\ \ }
-\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{int}\ score;}
-\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{int}\ high\_score;}
-\DoxyCodeLine{00077\ \ \ \textcolor{keywordtype}{int}\ level;}
-\DoxyCodeLine{00078\ \ \ \textcolor{keywordtype}{int}\ speed;}
-\DoxyCodeLine{00079\ \ \ \textcolor{keywordtype}{int}\ pause;}
-\DoxyCodeLine{00080\ \}\ GameInfo\_t;}
-\DoxyCodeLine{00081\ }
-\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ C7\_BRICKGAME\_BRICK\_GAME\_BRICKGAME\_H\_}}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/"{}THE\ Cola-\/WARE\ LICENSE"{}\ (Revision\ 21):-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ <liliammo@student.21-\/school.ru>\ wrote\ this\ code.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ As\ long\ as\ you\ complies\ with\ Google\ Style\ guidelines,\ you\ can\ do\ whatever\ }}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ you\ want\ with\ this\ stuff.\ If\ we\ meet\ someday,\ and\ you\ think\ this\ stuff\ is}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ worth\ it,\ you\ can\ buy\ me\ a\ Cola\ in\ return.\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Vasilii\ Kostin}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\ */}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ foo/src/bar/baz.h}}
+\DoxyCodeLine{00035\ \textcolor{comment}{//\ \#ifndef\ FOO\_BAR\_BAZ\_H\_}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifndef\ C7\_BRICKGAME\_BRICKGAME\_H}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ C7\_BRICKGAME\_BRICKGAME\_H}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ FIELD\_ROWS\ 20\ \ }}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ FIELD\_COLS\ 10\ \ }}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ FNEXT\_ROWS\ 4\ \ }}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ FNEXT\_COLS\ 4\ \ }}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00051\ \ \ Start,\ \ \ \ \ \ \textcolor{comment}{//\ f1}}
+\DoxyCodeLine{00052\ \ \ Pause,\ \ \ \ \ \ \textcolor{comment}{//\ f2}}
+\DoxyCodeLine{00053\ \ \ Terminate,\ \ \textcolor{comment}{//\ f3}}
+\DoxyCodeLine{00054\ \ \ Left,\ \ \ \ \ \ \ \textcolor{comment}{//\ 3}}
+\DoxyCodeLine{00055\ \ \ Right,\ \ \ \ \ \ \textcolor{comment}{//\ 4}}
+\DoxyCodeLine{00056\ \ \ Up,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ none}}
+\DoxyCodeLine{00057\ \ \ Down,\ \ \ \ \ \ \ \textcolor{comment}{//\ падение}}
+\DoxyCodeLine{00058\ \ \ Action\ \ \ \ \ \ \textcolor{comment}{//\ rotate\ \ //\ 7}}
+\DoxyCodeLine{00059\ \}\ UserAction\_t;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{/*!**********************************************************}}
+\DoxyCodeLine{00062\ \textcolor{comment}{\ *\ Игровое\ поле\ представляется\ как\ матрица\ размерностью\ десять\ на\ двадцать.}}
+\DoxyCodeLine{00063\ \textcolor{comment}{\ *\ Каждый\ элемент\ матрицы\ соответствует\ "{}пикселю"{}\ игрового\ поля\ и\ может}}
+\DoxyCodeLine{00064\ \textcolor{comment}{\ *\ находится\ в\ одном\ из\ двух\ состояний:\ пустой\ и\ заполненный.\ Кроме\ игрового}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ *\ поля\ у\ каждой\ игры\ есть\ дополнительная\ информация,\ которая\ выводится\ в}}
+\DoxyCodeLine{00066\ \textcolor{comment}{\ *\ боковой\ панели\ справа\ от\ игрового\ поля.\ Для\ дополнительной\ информации,\ не}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ *\ используемой\ во\ время\ игры,\ предусмотреть\ заглушки.}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ ************************************************************/}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{00070\ \ \ \textcolor{keywordtype}{int}\ **field;\ \ }
+\DoxyCodeLine{00071\ \ \ \textcolor{keywordtype}{int}\ **next;\ \ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keywordtype}{int}\ score;}
+\DoxyCodeLine{00073\ \ \ \textcolor{keywordtype}{int}\ high\_score;}
+\DoxyCodeLine{00074\ \ \ \textcolor{keywordtype}{int}\ level;}
+\DoxyCodeLine{00075\ \ \ \textcolor{keywordtype}{int}\ speed;}
+\DoxyCodeLine{00076\ \ \ \textcolor{keywordtype}{int}\ pause;}
+\DoxyCodeLine{00077\ \}\ GameInfo\_t;}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ C7\_BRICKGAME\_BRICKGAME\_H}}
 
 \end{DoxyCode}

@@ -1,18 +1,28 @@
 \doxysection{Файл gui/cli/brickgame-\/cli.c}
 \label{brickgame-cli_8c}\index{gui/cli/brickgame-\/cli.c@{gui/cli/brickgame-\/cli.c}}
 {\ttfamily \#include $<$ncurses.\+h$>$}\newline
+{\ttfamily \#include $<$brick\+\_\+game/brickgame.\+h$>$}\newline
 {\ttfamily \#include $<$dlfcn.\+h$>$}\newline
-{\ttfamily \#include "{}brick\+\_\+game/brickgame.\+h"{}}\newline
 Граф включаемых заголовочных файлов для brickgame-\/cli.c\+:
-% FIG 0
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=307pt]{brickgame-cli_8c__incl}
+\end{center}
+\end{figure}
 \doxysubsubsection*{Макросы}
 \begin{DoxyCompactItemize}
 \item 
-\label{brickgame-cli_8c_a71f46369499acf06f882280344dd90a6} 
-\#define {\bfseries BRICKGAME\+\_\+\+TIMEOUT}~30
-\item 
-\#define \mbox{\hyperlink{brickgame-cli_8c_a26d3a4745cd91df7b42c282fb5a2f2ca}{\+\_\+\+LIBS\+\_\+\+GAMES\+\_\+}}~"{}libtetris.\+so"{}
+\#define \mbox{\hyperlink{brickgame-cli_8c_aeebd3a4be25b2a163b0cf7dbdb32b5d2}{LIBS\+\_\+\+GAMES}}~"{}libtetris.\+so"{}
 \begin{DoxyCompactList}\small\item\em При использовании ncurses неизбежны утечки памяти\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+\label{brickgame-cli_8c_a06fc87d81c62e9abb8790b6e5713c55b} 
+enum \{ {\bfseries Brickgame\+Timeout} = 30
+ \}
+\end{DoxyCompactItemize}
 \doxysubsubsection*{Функции}
 \begin{DoxyCompactItemize}
 \item 
@@ -22,11 +32,11 @@ bool {\bfseries get\+Action\+Hold} (\mbox{\hyperlink{brickgame_8h_a7ba289d7b97db
 \label{brickgame-cli_8c_a90f38c09f7312c33355652964ef5df12} 
 bool {\bfseries un\+Load\+Dll\+So} (char \texorpdfstring{$\ast$}{*}libname\+\_\+dll\+\_\+so, void(\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}user\+Input\+\_\+ptr)(\mbox{\hyperlink{brickgame_8h_a7ba289d7b97db30e0b7041ca2cef75a9}{User\+Action\+\_\+t}} action, bool hold), \mbox{\hyperlink{struct_game_info__t}{Game\+Info\+\_\+t}}(\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}update\+Current\+State\+\_\+ptr)())
 \item 
-\label{brickgame-cli_8c_aa5fc33134da5623c62bc7a56bd38486a} 
-void {\bfseries render\+Field} (WINDOW \texorpdfstring{$\ast$}{*}win, int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}field, int y, int x)
+\label{brickgame-cli_8c_a686d75a84c2c1f171b94bd6f140b6d58} 
+void {\bfseries render\+Field} (WINDOW \texorpdfstring{$\ast$}{*}win, int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}field, int height, int width)
 \item 
-\label{brickgame-cli_8c_a8e07c9dc401f91aba2efee716e32a28f} 
-char \texorpdfstring{$\ast$}{*} {\bfseries strtok\+Games} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]}, int lr)
+\label{brickgame-cli_8c_a30f92e5b4bcc718cb01222fe5e9c76f1} 
+char \texorpdfstring{$\ast$}{*} {\bfseries strtok\+Games} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]}, int req\+\_\+game)
 \item 
 \label{brickgame-cli_8c_adb0fafac0628677f2cf7e2f2631d2feb} 
 WINDOW \texorpdfstring{$\ast$}{*} {\bfseries init\+Ncurses} ()
@@ -40,11 +50,11 @@ int {\bfseries main} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\
 
 
 \doxysubsection{Макросы}
-\index{brickgame-\/cli.c@{brickgame-\/cli.c}!\_LIBS\_GAMES\_@{\_LIBS\_GAMES\_}}
-\index{\_LIBS\_GAMES\_@{\_LIBS\_GAMES\_}!brickgame-\/cli.c@{brickgame-\/cli.c}}
-\doxysubsubsection{\texorpdfstring{\_LIBS\_GAMES\_}{\_LIBS\_GAMES\_}}
-{\footnotesize\ttfamily \label{brickgame-cli_8c_a26d3a4745cd91df7b42c282fb5a2f2ca} 
-\#define \+\_\+\+LIBS\+\_\+\+GAMES\+\_\+~"{}libtetris.\+so"{}}
+\index{brickgame-\/cli.c@{brickgame-\/cli.c}!LIBS\_GAMES@{LIBS\_GAMES}}
+\index{LIBS\_GAMES@{LIBS\_GAMES}!brickgame-\/cli.c@{brickgame-\/cli.c}}
+\doxysubsubsection{\texorpdfstring{LIBS\_GAMES}{LIBS\_GAMES}}
+{\footnotesize\ttfamily \label{brickgame-cli_8c_aeebd3a4be25b2a163b0cf7dbdb32b5d2} 
+\#define LIBS\+\_\+\+GAMES~"{}libtetris.\+so"{}}
 
 
 
@@ -63,7 +73,8 @@ int {\bfseries main} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\
 
 Вшитые имена файлов библиотек с играми, можно переопределить до компиляции\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{CFLAGS=\textcolor{stringliteral}{"{}-\/I../../\ -\/D\_LIBS\_GAMES\_=\(\backslash\)\(\backslash\)\(\backslash\)"{}libsnake.dll\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}}\ LDLIBS=\textcolor{stringliteral}{"{}-\/lncurses"{}}\ make\ brickgame\_cli\{.o,\}}
+\DoxyCodeLine{CFLAGS=\textcolor{stringliteral}{"{}-\/I../../\ -\/DLIBS\_GAMES=\(\backslash\)\(\backslash\)\(\backslash\)"{}libsnake.dll\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}}\ LDLIBS=\textcolor{stringliteral}{"{}-\/lncurses"{}}\ make}
+\DoxyCodeLine{brickgame\_cli\{.o,\}}
 
 \end{DoxyCode}
  А также можно передать имена файлов библиотек в качестве аргументов звпуска\+: 
