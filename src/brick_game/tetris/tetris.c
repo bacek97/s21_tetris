@@ -1,13 +1,9 @@
-/*
- * ------------------------------------------------------------
- * "THE Cola-WARE LICENSE" (Revision 21):
+/* -------------------"THE Cola-WARE LICENSE" (Revision 21):-------------------
  * <liliammo@student.21-school.ru> wrote this code.
- * As long as you complies with Google Style guidelines,
- * you can do whatever you want with this stuff. If we meet
- * someday, and you think this stuff is worth it,
- * you can buy me a Cola in return.              Vasilii Kostin
- * ------------------------------------------------------------
- */
+ * As long as you complies with Google Style guidelines, you can do whatever 
+ * you want with this stuff. If we meet someday, and you think this stuff is
+ * worth it, you can buy me a Cola in return.                    Vasilii Kostin
+ * ------------------------------------------------------------------------- */
 
 #include <brick_game/tetris/tetris.h>
 #include <fcntl.h>

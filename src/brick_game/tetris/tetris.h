@@ -1,15 +1,11 @@
+/* -------------------"THE Cola-WARE LICENSE" (Revision 21):-------------------
+ * <liliammo@student.21-school.ru> wrote this code.
+ * As long as you complies with Google Style guidelines, you can do whatever 
+ * you want with this stuff. If we meet someday, and you think this stuff is
+ * worth it, you can buy me a Cola in return.                    Vasilii Kostin
+ * ------------------------------------------------------------------------- */
 #ifndef C7_BRICKGAME_BRICK_GAME_TETRIS_TETRIS_H
 #define C7_BRICKGAME_BRICK_GAME_TETRIS_TETRIS_H
-/*
- * ------------------------------------------------------------
- * "THE Cola-WARE LICENSE" (Revision 21):
- * <liliammo@student.21-school.ru> wrote this code.
- * As long as you complies with Google Style guidelines,
- * you can do whatever you want with this stuff. If we meet
- * someday, and you think this stuff is worth it,
- * you can buy me a Cola in return.              Vasilii Kostin
- * ------------------------------------------------------------
- */
 
 /*! @file
  * @brief Диаграмма переходов состояния FSM:
