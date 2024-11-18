@@ -1,0 +1,143 @@
+\doxysection{Файл brick\+\_\+game/tetris/tetris.h}
+\label{tetris_8h}\index{brick\_game/tetris/tetris.h@{brick\_game/tetris/tetris.h}}
+
+
+Диаграмма переходов состояния FSM\+:  
+
+
+{\ttfamily \#include "{}brick\+\_\+game/brickgame.\+h"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$pthread.\+h$>$}\newline
+Граф включаемых заголовочных файлов для tetris.\+h\+:
+% FIG 0
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{tetris_8h_ae1d546a69a064327b6e6e6755f0803a4}{NELEMS}}(a)
+\item 
+\#define \mbox{\hyperlink{tetris_8h_a96a9822fa134450197dd454b1478a193}{BONUS}}~0, 1, 3, 7, 15
+\item 
+\#define \mbox{\hyperlink{tetris_8h_aaaa64d845c368f09c9d9eeea09e898d5}{SCORES\+\_\+\+IN\+\_\+\+LEVEL}}~6
+\item 
+\label{tetris_8h_a5bb4257ca9fa4bfcf9391b7895b97761} 
+\#define {\bfseries MAX\+\_\+\+LEVEL}~10
+\begin{DoxyCompactList}\small\item\em Максимальное количество уровней — 10. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{tetris_8h_a3024ccd4a9af5109d24e6c57565d74a1}{\+\_\+\+POSIX\+\_\+\+C\+\_\+\+SOURCE}}~199309L
+\begin{DoxyCompactList}\small\item\em Главная функция программы. \end{DoxyCompactList}\item 
+\label{tetris_8h_a106239fcf6108905a1beb6837f7343c8} 
+\#define {\bfseries \+\_\+\+UINTPTR\+\_\+\+T\+\_\+\+DEFINED}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Определения типов}
+\begin{DoxyCompactItemize}
+\item 
+\label{tetris_8h_a114cd6518969cda89ca31e12013b0b4d} 
+typedef void \texorpdfstring{$\ast$}{*}(\texorpdfstring{$\ast$}{*} {\bfseries Thread\+Func\+\_\+t}) (void \texorpdfstring{$\ast$}{*})
+\item 
+\label{tetris_8h_a3a29b9ac2990ea17235748d46a965460} 
+typedef unsigned long long {\bfseries uintptr\+\_\+t}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\label{tetris_8h_ab961f91e569a34b6984536633126257a} 
+void {\bfseries user\+Input} (\mbox{\hyperlink{brickgame_8h_a7ba289d7b97db30e0b7041ca2cef75a9}{User\+Action\+\_\+t}} action, bool hold)
+\item 
+\label{tetris_8h_afd5762991a9248a0b4192983fd786a8f} 
+\mbox{\hyperlink{struct_game_info__t}{Game\+Info\+\_\+t}} {\bfseries update\+Current\+State} ()
+\item 
+\label{tetris_8h_aa743128a071a844d15a88e1603a6f408} 
+bool {\bfseries update\+\_\+fsm\+\_\+ptr} (const uintptr\+\_\+t who\+\_\+init)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Диаграмма переходов состояния FSM\+: 
+
+Диаграмма требующая для отображения HAVE\+\_\+\+DOT = YES 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{dot_inline_dotgraph_1}}
+\end{DoxyImageNoCaption}
+
+
+Диаграмма требующая для отображения указания пути к файлу PLANTUML\+\_\+\+JAR\+\_\+\+PATH = plantuml-\/1.\+2024.\+7.\+jar 
+\begin{DoxyImageNoCaption}
+  \mbox{\includegraphics[width=\textwidth,height=\textheight/2,keepaspectratio=true]{inline_umlgraph_2}}
+\end{DoxyImageNoCaption}
+ 
+
+\doxysubsection{Макросы}
+\index{tetris.h@{tetris.h}!\_POSIX\_C\_SOURCE@{\_POSIX\_C\_SOURCE}}
+\index{\_POSIX\_C\_SOURCE@{\_POSIX\_C\_SOURCE}!tetris.h@{tetris.h}}
+\doxysubsubsection{\texorpdfstring{\_POSIX\_C\_SOURCE}{\_POSIX\_C\_SOURCE}}
+{\footnotesize\ttfamily \label{tetris_8h_a3024ccd4a9af5109d24e6c57565d74a1} 
+\#define \+\_\+\+POSIX\+\_\+\+C\+\_\+\+SOURCE~199309L}
+
+
+
+Главная функция программы. 
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{bool}\ update\_fsm\_ptr(\textcolor{keyword}{const}\ uintptr\_t\ who\_init)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ printf("{}update\_fsm\_ptr\ (\%p)\(\backslash\)n"{},\ who\_init);}}
+\DoxyCodeLine{\ \ void\ (**cur\_state)()\ =\ \&static\_ptr\_tetInfo()-\/>fsm\_func\_ptr;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordtype}{bool}\ err\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\ \ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\ \ \ \ void\ (*src)();}
+\DoxyCodeLine{\ \ \ \ void\ (*dst)();}
+\DoxyCodeLine{\ \ \ \ uintptr\_t\ sgn;}
+\DoxyCodeLine{\ \ \}\ arr[]\ =\ \{\{NULL,\ \ \ \ \ \ \ \ \ \ \ \ \ splashscr\_thr,\ \ \ (uintptr\_t)\&init\_thr\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{splashscr\_thr,\ \ \ \ unloading\_thr,\ \ \ (uintptr\_t)\&userInputTerminate\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{splashscr\_thr,\ \ \ \ unloading\_thr,\ \ \ (uintptr\_t)\&userInputTerminateLeft\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{moving\_thr,\ \ \ \ \ \ \ unloading\_thr,\ \ \ (uintptr\_t)\&userInputTerminate\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{pause\_thr,\ \ \ \ \ \ \ \ unloading\_thr,\ \ \ (uintptr\_t)\&userInputTerminate\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{pause\_thr,\ \ \ \ \ \ \ \ moving\_thr,\ \ \ \ \ \ (uintptr\_t)\&userInputPause\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{pause\_thr,\ \ \ \ \ \ \ \ moving\_thr,\ \ \ \ \ \ (uintptr\_t)\&pause\_thr\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{splashscr\_thr,\ \ \ \ moving\_thr,\ \ \ \ \ \ (uintptr\_t)\&userInputStart\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{moving\_thr,\ \ \ \ \ \ \ shifting\_thr,\ \ \ \ (uintptr\_t)\&switcher\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{shifting\_thr,\ \ \ \ \ moving\_thr,\ \ \ \ \ \ (uintptr\_t)\&shifting\_thr\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{moving\_thr,\ \ \ \ \ \ \ pause\_thr,\ \ \ \ \ \ \ (uintptr\_t)\&userInputPause\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \{shifting\_thr,\ \ \ \ \ splashscr\_thr,\ \ \ (uintptr\_t)\&checkGameover\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ (int)NELEMS(arr);\ i++)}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ ((*cur\_state\ ==\ arr[i].src\ \&\&\ arr[i].sgn\ ==\ who\_init))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ *cur\_state\ =\ arr[i].dst;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ err\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\ \ \ \ \textcolor{comment}{//\ printf("{}update\_fsm\_ptr\ src:\%p,\ dst:\%p,\ sgn:\%p,\ \ \(\backslash\)n"{},\ arr[i].src,\ arr[i].dst,\ arr[i].sgn);}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \textcolor{keywordflow}{return}\ err;}
+\DoxyCodeLine{\}}
+
+\end{DoxyCodeInclude}
+ \index{tetris.h@{tetris.h}!BONUS@{BONUS}}
+\index{BONUS@{BONUS}!tetris.h@{tetris.h}}
+\doxysubsubsection{\texorpdfstring{BONUS}{BONUS}}
+{\footnotesize\ttfamily \label{tetris_8h_a96a9822fa134450197dd454b1478a193} 
+\#define BONUS~0, 1, 3, 7, 15}
+
+Начисление очков будет происходить следующим образом\+:
+\begin{DoxyItemize}
+\item 1 линия — 100 очков;
+\item 2 линии — 300 очков;
+\item 3 линии — 700 очков;
+\item 4 линии — 1500 очков. 
+\end{DoxyItemize}\index{tetris.h@{tetris.h}!NELEMS@{NELEMS}}
+\index{NELEMS@{NELEMS}!tetris.h@{tetris.h}}
+\doxysubsubsection{\texorpdfstring{NELEMS}{NELEMS}}
+{\footnotesize\ttfamily \label{tetris_8h_ae1d546a69a064327b6e6e6755f0803a4} 
+\#define NELEMS(\begin{DoxyParamCaption}\item[{}]{a}{}\end{DoxyParamCaption})}
+
+{\bfseries Макроопределение\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{(\textcolor{keyword}{sizeof}(a)\ /\ \textcolor{keyword}{sizeof}((a)[0]))}
+
+\end{DoxyCode}
+Количество элементов массива с фиксированным размером, определённым на момент компиляции \index{tetris.h@{tetris.h}!SCORES\_IN\_LEVEL@{SCORES\_IN\_LEVEL}}
+\index{SCORES\_IN\_LEVEL@{SCORES\_IN\_LEVEL}!tetris.h@{tetris.h}}
+\doxysubsubsection{\texorpdfstring{SCORES\_IN\_LEVEL}{SCORES\_IN\_LEVEL}}
+{\footnotesize\ttfamily \label{tetris_8h_aaaa64d845c368f09c9d9eeea09e898d5} 
+\#define SCORES\+\_\+\+IN\+\_\+\+LEVEL~6}
+
+Каждый раз, когда игрок набирает 600 очков, скорость и уровень увеличивается на 1. 

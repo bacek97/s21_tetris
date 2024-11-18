@@ -1,0 +1,103 @@
+\chapter{Doxygen documentation}
+\label{index}\index{Doxygen documentation@{Doxygen documentation}}
+\label{index_mainpage}%
+\Hypertarget{index_mainpage}%
+\hypertarget{index_autotoc_md0}{}\doxysection{\texorpdfstring{Цель реализации проекта}{Цель реализации проекта}}\label{index_autotoc_md0}
+
+\begin{DoxyEnumerate}
+\item Научиться работать с динамическими библиотеками
+\item Научиться проектировать программы на основе конечных автоматов
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Задача}{Задача}}\label{index_autotoc_md1}
+
+\begin{DoxyEnumerate}
+\item Реализовать библиотеку игры "{}\+Tetris"{}, управляемую двумя асинхронными функциями.
+\item Реализовать эмулятор игровой приставки "{}\+Brick Game"{}, способный динамически загружать различные библотеки с играми.
+\end{DoxyEnumerate}
+
+Для унификации игр управление в них должно быть основано на функциях {\ttfamily user\+Input(\+User\+Action\+\_\+t,bool)} и {\ttfamily update\+Current\+State()}\+:
+
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\textcolor{comment}{/*}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ "{}THE\ Cola-\/WARE\ LICENSE"{}\ (Revision\ 21):}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ <liliammo@student.21-\/school.ru>\ wrote\ this\ code.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ As\ long\ as\ you\ complies\ with\ Google\ Style\ guidelines,}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ you\ can\ do\ whatever\ you\ want\ with\ this\ stuff.\ If\ we\ meet}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ someday,\ and\ you\ think\ this\ stuff\ is\ worth\ it,}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ you\ can\ buy\ me\ a\ Cola\ in\ return.\ \ \ \ \ \ \ \ \ \ \ \ \ \ Vasilii\ Kostin}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\textcolor{comment}{\ */}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{//\ foo/src/bar/baz.h}}
+\DoxyCodeLine{\textcolor{comment}{//\ \#ifndef\ FOO\_BAR\_BAZ\_H\_}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#ifndef\ C7\_BRICKGAME\_BRICK\_GAME\_BRICKGAME\_H\_}}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ C7\_BRICKGAME\_BRICK\_GAME\_BRICKGAME\_H\_}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ FIELD\_ROWS\ 20\ \ }}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ FIELD\_COLS\ 10\ \ }}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ FNEXT\_ROWS\ 4\ \ }}
+\DoxyCodeLine{\textcolor{preprocessor}{\#define\ FNEXT\_COLS\ 4\ \ }}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\ \ Start,\ \ \ \ \ \ \textcolor{comment}{//\ f1}}
+\DoxyCodeLine{\ \ Pause,\ \ \ \ \ \ \textcolor{comment}{//\ f2}}
+\DoxyCodeLine{\ \ Terminate,\ \ \textcolor{comment}{//\ f3}}
+\DoxyCodeLine{\ \ Left,\ \ \ \ \ \ \ \textcolor{comment}{//\ 3}}
+\DoxyCodeLine{\ \ Right,\ \ \ \ \ \ \textcolor{comment}{//\ 4}}
+\DoxyCodeLine{\ \ Up,\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ none}}
+\DoxyCodeLine{\ \ Down,\ \ \ \ \ \ \ \textcolor{comment}{//\ падение}}
+\DoxyCodeLine{\ \ Action\ \ \ \ \ \ \textcolor{comment}{//\ rotate\ \ //\ 7}}
+\DoxyCodeLine{\}\ UserAction\_t;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{comment}{/*!**********************************************************}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Игровое\ поле\ представляется\ как\ матрица\ размерностью\ десять\ на\ двадцать.}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ Каждый\ элемент\ матрицы\ соответствует\ "{}пикселю"{}\ игрового\ поля\ и\ может}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ находится\ в\ одном\ из\ двух\ состояний:\ пустой\ и\ заполненный.\ Кроме\ игрового}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ поля\ у\ каждой\ игры\ есть\ дополнительная\ информация,\ которая\ выводится\ в}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ боковой\ панели\ справа\ от\ игрового\ поля.\ Для\ дополнительной\ информации,\ не}}
+\DoxyCodeLine{\textcolor{comment}{\ *\ используемой\ во\ время\ игры,\ предусмотреть\ заглушки.}}
+\DoxyCodeLine{\textcolor{comment}{\ ************************************************************/}}
+\DoxyCodeLine{\textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ **field;\ \ }
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ **next;\ \ }
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ score;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ high\_score;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ level;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ speed;}
+\DoxyCodeLine{\ \ \textcolor{keywordtype}{int}\ pause;}
+\DoxyCodeLine{\}\ GameInfo\_t;}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ C7\_BRICKGAME\_BRICK\_GAME\_BRICKGAME\_H\_}}
+
+\end{DoxyCodeInclude}
+\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{Google style}{Google style}}\label{index_autotoc_md2}
+В Google Style Guide для C++ и C рекомендации по стилю именования следующие\+:
+
+
+\begin{DoxyItemize}
+\item File Names\+: lower\+\_\+case\+\_\+with\+\_\+underscores\+\_\+or-\/dashes.\+cc
+\item Struct Data Members\+: snake\+\_\+case
+\item Variable Names\+: snake\+\_\+case
+\item Function Names\+: Pascal\+Case
+\item Type Names\+: Pascal\+Case
+\item Constant Names\+: k\+Prefix\+Followed\+By\+Mixed\+Case
+\item Enumerator Names\+: UPPER\+\_\+\+CASE\+\_\+\+WITH\+\_\+\+UNDERSCORES
+\item Macro Names\+: UPPER\+\_\+\+CASE\+\_\+\+WITH\+\_\+\+UNDERSCORES
+\item Namespace Names\+: snake\+\_\+case
+\item Concept Names\+: Pascal\+Case
+\item Class Data Members\+: snake\+\_\+case\+\_\+with\+\_\+a\+\_\+trailing\+\_\+underscore\+\_\+
+\end{DoxyItemize}\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Примечания}{Примечания}}\label{index_autotoc_md3}
+\hypertarget{index_autotoc_md4}{}\doxysubsection{\texorpdfstring{При разработке я придерживался Google Style Guide со следующими изменениями\+:}{При разработке я придерживался Google Style Guide со следующими изменениями\+:}}\label{index_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Function Names\+: lower\+Camel\+Case {\ttfamily update\+Current\+State()}
+\item Type Names\+: Pascal\+Case\+With\+ATrailing\+\_\+t {\ttfamily User\+Action\+\_\+t}
+\end{DoxyItemize}\hypertarget{index_autotoc_md5}{}\doxysubsection{\texorpdfstring{Библиотека игры тетрис реализована с использованием конечного автомата\+:}{Библиотека игры тетрис реализована с использованием конечного автомата\+:}}\label{index_autotoc_md5}
+
+
+
+
+
+
+ 

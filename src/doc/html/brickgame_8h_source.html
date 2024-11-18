@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Исходный файл brick_game/brickgame.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('brickgame_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">brickgame.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="brickgame_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * ------------------------------------------------------------</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * &quot;THE Cola-WARE LICENSE&quot; (Revision 21):</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * &lt;liliammo@student.21-school.ru&gt; wrote this code.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * As long as you complies with Google Style guidelines,</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * you can do whatever you want with this stuff. If we meet</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * someday, and you think this stuff is worth it,</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * you can buy me a Cola in return.              Vasilii Kostin</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * ------------------------------------------------------------</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// foo/src/bar/baz.h</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">// #ifndef FOO_BAR_BAZ_H_</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#ifndef C7_BRICKGAME_BRICK_GAME_BRICKGAME_H_</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define C7_BRICKGAME_BRICK_GAME_BRICKGAME_H_</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="brickgame_8h.html#aac8212b115bae561910e50f6727650a2">   43</a></span><span class="preprocessor">#define FIELD_ROWS 20  </span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="brickgame_8h.html#a9da2481ad52b5e998640e5aff6970292">   44</a></span><span class="preprocessor">#define FIELD_COLS 10  </span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="brickgame_8h.html#a2236597a72ae14696ccc6a09fb4fc5af">   45</a></span><span class="preprocessor">#define FNEXT_ROWS 4  </span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="brickgame_8h.html#ad4e22d565bf928f8afa6803ebdac7fa3">   46</a></span><span class="preprocessor">#define FNEXT_COLS 4  </span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">   53</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  Start,      <span class="comment">// f1</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  Pause,      <span class="comment">// f2</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  Terminate,  <span class="comment">// f3</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  Left,       <span class="comment">// 3</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  Right,      <span class="comment">// 4</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  Up,         <span class="comment">// none</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  Down,       <span class="comment">// падение</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  Action      <span class="comment">// rotate  // 7</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>} <a class="code hl_enumeration" href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">UserAction_t</a>;</div>
+</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">/*!**********************************************************</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> * Игровое поле представляется как матрица размерностью десять на двадцать.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> * Каждый элемент матрицы соответствует &quot;пикселю&quot; игрового поля и может</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> * находится в одном из двух состояний: пустой и заполненный. Кроме игрового</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * поля у каждой игры есть дополнительная информация, которая выводится в</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * боковой панели справа от игрового поля. Для дополнительной информации, не</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> * используемой во время игры, предусмотреть заглушки.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> ************************************************************/</span></div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="};">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="struct_game_info__t.html">   72</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="struct_game_info__t.html#adf83a667bbdb2ab6f7110b4f394bb294">   73</a></span>  <span class="keywordtype">int</span> **<a class="code hl_variable" href="struct_game_info__t.html#adf83a667bbdb2ab6f7110b4f394bb294">field</a>;  </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="struct_game_info__t.html#ab897112aa413eac6657970ef2a873026">   74</a></span>  <span class="keywordtype">int</span> **<a class="code hl_variable" href="struct_game_info__t.html#ab897112aa413eac6657970ef2a873026">next</a>;  </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keywordtype">int</span> score;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  <span class="keywordtype">int</span> high_score;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="keywordtype">int</span> level;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  <span class="keywordtype">int</span> speed;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keywordtype">int</span> pause;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>} <a class="code hl_struct" href="struct_game_info__t.html">GameInfo_t</a>;</div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">#endif  </span><span class="comment">// C7_BRICKGAME_BRICK_GAME_BRICKGAME_H_</span></div>
+<div class="ttc" id="abrickgame_8h_html_a7ba289d7b97db30e0b7041ca2cef75a9"><div class="ttname"><a href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">UserAction_t</a></div><div class="ttdeci">UserAction_t</div><div class="ttdoc">У консоли имеется восемь физических кнопок: начало игры, пауза, завершение игры, действие и четыре ст...</div><div class="ttdef"><b>Definition</b> brickgame.h:53</div></div>
+<div class="ttc" id="astruct_game_info__t_html"><div class="ttname"><a href="struct_game_info__t.html">GameInfo_t</a></div><div class="ttdef"><b>Definition</b> brickgame.h:72</div></div>
+<div class="ttc" id="astruct_game_info__t_html_ab897112aa413eac6657970ef2a873026"><div class="ttname"><a href="struct_game_info__t.html#ab897112aa413eac6657970ef2a873026">GameInfo_t::next</a></div><div class="ttdeci">int ** next</div><div class="ttdoc">Указатель на матрицу размерностью 4x4.</div><div class="ttdef"><b>Definition</b> brickgame.h:74</div></div>
+<div class="ttc" id="astruct_game_info__t_html_adf83a667bbdb2ab6f7110b4f394bb294"><div class="ttname"><a href="struct_game_info__t.html#adf83a667bbdb2ab6f7110b4f394bb294">GameInfo_t::field</a></div><div class="ttdeci">int ** field</div><div class="ttdoc">Указатель на матрицу размерностью 20x10.</div><div class="ttdef"><b>Definition</b> brickgame.h:73</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_2ee2de302366a9522113dfc9d3962873.html">brick_game</a></li><li class="navelem"><a class="el" href="brickgame_8h.html">brickgame.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+getActionHold call:[KEY_F,getch]
+unLoadDllSo call:[dlclose,dlopen,dlsym] noreturn:[dlsym]
+renderField call:[getcurx,getcury,waddch,wmove,wrefresh] noreturn:[wmove,wrefresh]
+strtokGames call:[sizeof]
+initNcurses call:[curs_set,initscr,keypad,noecho]
+renderAside call:[renderField,wprintw] noreturn:[wprintw]
+main call:[GameInfo_t,endwin,getActionHold,initNcurses,mvprintw,renderAside,renderField,strtokGames,subwin,timeout,unLoadDllSo,void] noreturn:[endwin,renderAside,unLoadDllSo]

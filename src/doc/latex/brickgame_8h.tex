@@ -1,0 +1,81 @@
+\doxysection{Файл brick\+\_\+game/brickgame.h}
+\label{brickgame_8h}\index{brick\_game/brickgame.h@{brick\_game/brickgame.h}}
+
+
+Каждая библиотека с игрой должна иметь функции\+: {\ttfamily user\+Input} принимающую на вход пользовательское действие {\ttfamily User\+Action\+\_\+t} и дополнительный параметр {\ttfamily bool}, который отвечает за зажатие клавиши.  
+
+
+Граф файлов, в которые включается этот файл\+:
+% FIG 0
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_game_info__t}{Game\+Info\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\label{brickgame_8h_aac8212b115bae561910e50f6727650a2} 
+\#define {\bfseries FIELD\+\_\+\+ROWS}~20
+\begin{DoxyCompactList}\small\item\em Высота игрового поля \end{DoxyCompactList}\item 
+\label{brickgame_8h_a9da2481ad52b5e998640e5aff6970292} 
+\#define {\bfseries FIELD\+\_\+\+COLS}~10
+\begin{DoxyCompactList}\small\item\em Ширина игрового поля \end{DoxyCompactList}\item 
+\label{brickgame_8h_a2236597a72ae14696ccc6a09fb4fc5af} 
+\#define {\bfseries FNEXT\+\_\+\+ROWS}~4
+\begin{DoxyCompactList}\small\item\em Высота поля для отображения следующей фигуры \end{DoxyCompactList}\item 
+\label{brickgame_8h_ad4e22d565bf928f8afa6803ebdac7fa3} 
+\#define {\bfseries FNEXT\+\_\+\+COLS}~4
+\begin{DoxyCompactList}\small\item\em Ширина поля для отображения следующей фигуры \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{brickgame_8h_a7ba289d7b97db30e0b7041ca2cef75a9}{User\+Action\+\_\+t}} \{ \newline
+{\bfseries Start}
+, {\bfseries Pause}
+, {\bfseries Terminate}
+, {\bfseries Left}
+, \newline
+{\bfseries Right}
+, {\bfseries Up}
+, {\bfseries Down}
+, {\bfseries Action}
+ \}
+\begin{DoxyCompactList}\small\item\em У консоли имеется восемь физических кнопок\+: начало игры, пауза, завершение игры, действие и четыре стрелочки. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Каждая библиотека с игрой должна иметь функции\+: {\ttfamily user\+Input} принимающую на вход пользовательское действие {\ttfamily User\+Action\+\_\+t} и дополнительный параметр {\ttfamily bool}, который отвечает за зажатие клавиши. 
+
+Функция {\ttfamily update\+Current\+State} предназначена для получения данных для отрисовки в интерфейсе. Она возвращает структуру, содержащую информацию о текущем состоянии игры. Например, для тетриса истечение таймера приводит к смещению фигуры вниз на один ряд. Эта функция должна вызываться из интерфейса с некоторой периодичностью для поддержания интерфейса в актуальном состоянии. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{\textcolor{keywordtype}{void}\ userInput(UserAction\_t\ action,\ \textcolor{keywordtype}{bool}\ hold);}
+\DoxyCodeLine{GameInfo\_t\ updateCurrentState();}
+
+\end{DoxyCode}
+ В коде эмулятора консоли обе функции можно загрузить в локальные переменные\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <dlfcn.h>}}
+\DoxyCodeLine{void\ (*userInput\_ptr)(UserAction\_t\ action,\ \textcolor{keywordtype}{bool}\ hold)\ =\ }
+\DoxyCodeLine{*dlsym(library\_handler,\ \textcolor{stringliteral}{"{}userInput"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{GameInfo\_t\ (*updateCurrentState\_ptr)()\ =}
+\DoxyCodeLine{*dlsym((*dll\_so)(),\ \textcolor{stringliteral}{"{}updateCurrentState"{}});}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Перечисления}
+\index{brickgame.h@{brickgame.h}!UserAction\_t@{UserAction\_t}}
+\index{UserAction\_t@{UserAction\_t}!brickgame.h@{brickgame.h}}
+\doxysubsubsection{\texorpdfstring{UserAction\_t}{UserAction\_t}}
+{\footnotesize\ttfamily \label{brickgame_8h_a7ba289d7b97db30e0b7041ca2cef75a9} 
+enum \mbox{\hyperlink{brickgame_8h_a7ba289d7b97db30e0b7041ca2cef75a9}{User\+Action\+\_\+t}}}
+
+
+
+У консоли имеется восемь физических кнопок\+: начало игры, пауза, завершение игры, действие и четыре стрелочки. 
+
+\DoxyHorRuler{0}
+  

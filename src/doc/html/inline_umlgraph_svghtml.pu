@@ -1,0 +1,17 @@
+@startuml inline_umlgraph_1.svg
+left to right direction
+
+[*] --> STATE_SPLASH_SCR : updateCurrentState()
+
+STATE_SPLASH_SCR --> STATE_MOVING : pthread_cond_wait() == userInput(Start)
+STATE_SPLASH_SCR --> STATE_UNLOADED : pthread_cond_wait() == userInput(Terminate || Left || Right)
+
+STATE_MOVING --> STATE_MOVING : pthread_cond_timedwait() == ETIMEDOUT && isShifted() == true
+STATE_MOVING --> STATE_MOVING : pthread_cond_timedwait() == userInput(...)
+STATE_MOVING --> STATE_SPLASH_SCR : pthread_cond_timedwait() == ETIMEDOUT && isShifted() == false
+STATE_MOVING --> STATE_PAUSED : pthread_cond_timedwait() == userInput(Pause)
+STATE_MOVING --> STATE_UNLOADED : pthread_cond_timedwait() == userInput(Terminate)
+
+STATE_PAUSED --> STATE_MOVING : pthread_cond_wait() == userInput(Pause)
+STATE_PAUSED --> STATE_UNLOADED : pthread_cond_wait() == userInput(Terminate)
+@enduml

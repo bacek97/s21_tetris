@@ -1,0 +1,74 @@
+\doxysection{Файл gui/cli/brickgame-\/cli.c}
+\label{brickgame-cli_8c}\index{gui/cli/brickgame-\/cli.c@{gui/cli/brickgame-\/cli.c}}
+{\ttfamily \#include $<$ncurses.\+h$>$}\newline
+{\ttfamily \#include $<$dlfcn.\+h$>$}\newline
+{\ttfamily \#include "{}brick\+\_\+game/brickgame.\+h"{}}\newline
+Граф включаемых заголовочных файлов для brickgame-\/cli.c\+:
+% FIG 0
+\doxysubsubsection*{Макросы}
+\begin{DoxyCompactItemize}
+\item 
+\label{brickgame-cli_8c_a71f46369499acf06f882280344dd90a6} 
+\#define {\bfseries BRICKGAME\+\_\+\+TIMEOUT}~30
+\item 
+\#define \mbox{\hyperlink{brickgame-cli_8c_a26d3a4745cd91df7b42c282fb5a2f2ca}{\+\_\+\+LIBS\+\_\+\+GAMES\+\_\+}}~"{}libtetris.\+so"{}
+\begin{DoxyCompactList}\small\item\em При использовании ncurses неизбежны утечки памяти\+: \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\label{brickgame-cli_8c_a577576746eff303afd75ac5be656d83d} 
+bool {\bfseries get\+Action\+Hold} (\mbox{\hyperlink{brickgame_8h_a7ba289d7b97db30e0b7041ca2cef75a9}{User\+Action\+\_\+t}} \texorpdfstring{$\ast$}{*}action, bool \texorpdfstring{$\ast$}{*}hold)
+\item 
+\label{brickgame-cli_8c_a90f38c09f7312c33355652964ef5df12} 
+bool {\bfseries un\+Load\+Dll\+So} (char \texorpdfstring{$\ast$}{*}libname\+\_\+dll\+\_\+so, void(\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}user\+Input\+\_\+ptr)(\mbox{\hyperlink{brickgame_8h_a7ba289d7b97db30e0b7041ca2cef75a9}{User\+Action\+\_\+t}} action, bool hold), \mbox{\hyperlink{struct_game_info__t}{Game\+Info\+\_\+t}}(\texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}update\+Current\+State\+\_\+ptr)())
+\item 
+\label{brickgame-cli_8c_aa5fc33134da5623c62bc7a56bd38486a} 
+void {\bfseries render\+Field} (WINDOW \texorpdfstring{$\ast$}{*}win, int \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}field, int y, int x)
+\item 
+\label{brickgame-cli_8c_a8e07c9dc401f91aba2efee716e32a28f} 
+char \texorpdfstring{$\ast$}{*} {\bfseries strtok\+Games} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]}, int lr)
+\item 
+\label{brickgame-cli_8c_adb0fafac0628677f2cf7e2f2631d2feb} 
+WINDOW \texorpdfstring{$\ast$}{*} {\bfseries init\+Ncurses} ()
+\item 
+\label{brickgame-cli_8c_ae02632f2094c8c027b66bf9d6e6671d4} 
+void {\bfseries render\+Aside} (WINDOW \texorpdfstring{$\ast$}{*}win, \mbox{\hyperlink{struct_game_info__t}{Game\+Info\+\_\+t}} info)
+\item 
+\label{brickgame-cli_8c_a0ddf1224851353fc92bfbff6f499fa97} 
+int {\bfseries main} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Макросы}
+\index{brickgame-\/cli.c@{brickgame-\/cli.c}!\_LIBS\_GAMES\_@{\_LIBS\_GAMES\_}}
+\index{\_LIBS\_GAMES\_@{\_LIBS\_GAMES\_}!brickgame-\/cli.c@{brickgame-\/cli.c}}
+\doxysubsubsection{\texorpdfstring{\_LIBS\_GAMES\_}{\_LIBS\_GAMES\_}}
+{\footnotesize\ttfamily \label{brickgame-cli_8c_a26d3a4745cd91df7b42c282fb5a2f2ca} 
+\#define \+\_\+\+LIBS\+\_\+\+GAMES\+\_\+~"{}libtetris.\+so"{}}
+
+
+
+При использовании ncurses неизбежны утечки памяти\+: 
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{preprocessor}{\#include\ <ncurses.h>}\ \ \textcolor{comment}{//\ libncurses-\/dev\ 6.4+20240113-\/1ubuntu2}}
+\DoxyCodeLine{\textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\ \ \ \ initscr();\ \ \textcolor{comment}{//\ valgrind-\/3.22.0\ ERROR\ SUMMARY:\ 3\ errors\ from\ 3\ contexts}}
+\DoxyCodeLine{\ \ \ \ endwin();}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Вшитые имена файлов библиотек с играми, можно переопределить до компиляции\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{CFLAGS=\textcolor{stringliteral}{"{}-\/I../../\ -\/D\_LIBS\_GAMES\_=\(\backslash\)\(\backslash\)\(\backslash\)"{}libsnake.dll\(\backslash\)\(\backslash\)\(\backslash\)"{}"{}}\ LDLIBS=\textcolor{stringliteral}{"{}-\/lncurses"{}}\ make\ brickgame\_cli\{.o,\}}
+
+\end{DoxyCode}
+ А также можно передать имена файлов библиотек в качестве аргументов звпуска\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{LD\_LIBRARY\_PATH=.\ ./brickgame\_cli\ \textcolor{stringliteral}{"{}libsnake.dll"{}}\ \textcolor{stringliteral}{"{}libfrogger.so"{}}}
+
+\end{DoxyCode}
+ 

@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.12.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: Doxygen documentation</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.12.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('index.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Doxygen documentation </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="mainpage"></a></p>
+<h1><a class="anchor" id="autotoc_md0"></a>
+Цель реализации проекта</h1>
+<ol type="1">
+<li>Научиться работать с динамическими библиотеками</li>
+<li>Научиться проектировать программы на основе конечных автоматов</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Задача</h1>
+<ol type="1">
+<li>Реализовать библиотеку игры "Tetris", управляемую двумя асинхронными функциями.</li>
+<li>Реализовать эмулятор игровой приставки "Brick Game", способный динамически загружать различные библотеки с играми.</li>
+</ol>
+<p>Для унификации игр управление в них должно быть основано на функциях <code>userInput(UserAction_t,bool)</code> и <code>updateCurrentState()</code>:</p>
+<div class="fragment"><div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> * ------------------------------------------------------------</span></div>
+<div class="line"><span class="comment"> * &quot;THE Cola-WARE LICENSE&quot; (Revision 21):</span></div>
+<div class="line"><span class="comment"> * &lt;liliammo@student.21-school.ru&gt; wrote this code.</span></div>
+<div class="line"><span class="comment"> * As long as you complies with Google Style guidelines,</span></div>
+<div class="line"><span class="comment"> * you can do whatever you want with this stuff. If we meet</span></div>
+<div class="line"><span class="comment"> * someday, and you think this stuff is worth it,</span></div>
+<div class="line"><span class="comment"> * you can buy me a Cola in return.              Vasilii Kostin</span></div>
+<div class="line"><span class="comment"> * ------------------------------------------------------------</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// foo/src/bar/baz.h</span></div>
+<div class="line"><span class="comment">// #ifndef FOO_BAR_BAZ_H_</span></div>
+<div class="line"><span class="preprocessor">#ifndef C7_BRICKGAME_BRICK_GAME_BRICKGAME_H_</span></div>
+<div class="line"><span class="preprocessor">#define C7_BRICKGAME_BRICK_GAME_BRICKGAME_H_</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#define FIELD_ROWS 20  </span></div>
+<div class="line"><span class="preprocessor">#define FIELD_COLS 10  </span></div>
+<div class="line"><span class="preprocessor">#define FNEXT_ROWS 4  </span></div>
+<div class="line"><span class="preprocessor">#define FNEXT_COLS 4  </span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line">  Start,      <span class="comment">// f1</span></div>
+<div class="line">  Pause,      <span class="comment">// f2</span></div>
+<div class="line">  Terminate,  <span class="comment">// f3</span></div>
+<div class="line">  Left,       <span class="comment">// 3</span></div>
+<div class="line">  Right,      <span class="comment">// 4</span></div>
+<div class="line">  Up,         <span class="comment">// none</span></div>
+<div class="line">  Down,       <span class="comment">// падение</span></div>
+<div class="line">  Action      <span class="comment">// rotate  // 7</span></div>
+<div class="line">} <a class="code hl_enumeration" href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">UserAction_t</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*!**********************************************************</span></div>
+<div class="line"><span class="comment"> * Игровое поле представляется как матрица размерностью десять на двадцать.</span></div>
+<div class="line"><span class="comment"> * Каждый элемент матрицы соответствует &quot;пикселю&quot; игрового поля и может</span></div>
+<div class="line"><span class="comment"> * находится в одном из двух состояний: пустой и заполненный. Кроме игрового</span></div>
+<div class="line"><span class="comment"> * поля у каждой игры есть дополнительная информация, которая выводится в</span></div>
+<div class="line"><span class="comment"> * боковой панели справа от игрового поля. Для дополнительной информации, не</span></div>
+<div class="line"><span class="comment"> * используемой во время игры, предусмотреть заглушки.</span></div>
+<div class="line"><span class="comment"> ************************************************************/</span></div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line">  <span class="keywordtype">int</span> **field;  </div>
+<div class="line">  <span class="keywordtype">int</span> **next;  </div>
+<div class="line">  <span class="keywordtype">int</span> score;</div>
+<div class="line">  <span class="keywordtype">int</span> high_score;</div>
+<div class="line">  <span class="keywordtype">int</span> level;</div>
+<div class="line">  <span class="keywordtype">int</span> speed;</div>
+<div class="line">  <span class="keywordtype">int</span> pause;</div>
+<div class="line">} <a class="code hl_struct" href="struct_game_info__t.html">GameInfo_t</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#endif  </span><span class="comment">// C7_BRICKGAME_BRICK_GAME_BRICKGAME_H_</span></div>
+<div class="ttc" id="abrickgame_8h_html_a7ba289d7b97db30e0b7041ca2cef75a9"><div class="ttname"><a href="brickgame_8h.html#a7ba289d7b97db30e0b7041ca2cef75a9">UserAction_t</a></div><div class="ttdeci">UserAction_t</div><div class="ttdoc">У консоли имеется восемь физических кнопок: начало игры, пауза, завершение игры, действие и четыре ст...</div><div class="ttdef"><b>Definition</b> brickgame.h:53</div></div>
+<div class="ttc" id="astruct_game_info__t_html"><div class="ttname"><a href="struct_game_info__t.html">GameInfo_t</a></div><div class="ttdef"><b>Definition</b> brickgame.h:72</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
+Google style</h1>
+<p>В Google Style Guide для C++ и C рекомендации по стилю именования следующие:</p>
+<ul>
+<li>File Names: lower_case_with_underscores_or-dashes.cc</li>
+<li>Struct Data Members: snake_case</li>
+<li>Variable Names: snake_case</li>
+<li>Function Names: PascalCase</li>
+<li>Type Names: PascalCase</li>
+<li>Constant Names: kPrefixFollowedByMixedCase</li>
+<li>Enumerator Names: UPPER_CASE_WITH_UNDERSCORES</li>
+<li>Macro Names: UPPER_CASE_WITH_UNDERSCORES</li>
+<li>Namespace Names: snake_case</li>
+<li>Concept Names: PascalCase</li>
+<li>Class Data Members: snake_case_with_a_trailing_underscore_</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Примечания</h1>
+<h2><a class="anchor" id="autotoc_md4"></a>
+При разработке я придерживался Google Style Guide со следующими изменениями:</h2>
+<ul>
+<li>Function Names: lowerCamelCase <code>updateCurrentState()</code></li>
+<li>Type Names: PascalCaseWithATrailing_t <code>UserAction_t</code></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md5"></a>
+Библиотека игры тетрис реализована с использованием конечного автомата:</h2>
+<p><img src="doc/html/inline_umlgraph_1.svg" alt="Path not correct in Doxygen1" style="pointer-events: none;" class="inline"/></p>
+<p><img src="doc/html/dot_inline_dotgraph_1.svg" alt="Path not correct in Doxygen2" style="pointer-events: none;" class="inline"/></p>
+<p><img src="inline_umlgraph_1.svg" alt="Path not correct in Markdown1" style="pointer-events: none;" class="inline"/></p>
+<p><img src="dot_inline_dotgraph_1.svg" alt="Path not correct in Markdown2" style="pointer-events: none;" class="inline"/> </p>
+</div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+  </ul>
+</div>
+</body>
+</html>

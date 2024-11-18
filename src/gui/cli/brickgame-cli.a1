@@ -1,0 +1,153 @@
+<?xml version="1.0"?>
+<analyzerinfo hash="6510219100413999685">
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;ncurses.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;ncurses.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="gui\cli\brickgame-cli.c" line="32" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;dlfcn.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;dlfcn.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="gui\cli\brickgame-cli.c" line="34" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="gui/cli/brickgame-cli.c:56:6" call-funcname="getActionHold" call-argnr="1" file="gui/cli/brickgame-cli.c" line="172" col="40" call-argexpr="&amp;action" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="gui/cli/brickgame-cli.c:56:6" call-funcname="getActionHold" call-argnr="2" file="gui/cli/brickgame-cli.c" line="172" col="40" call-argexpr="&amp;hold" call-argvaluetype="7" call-argvalue="1"/><function-call call-id="gui/cli/brickgame-cli.c:103:6" call-funcname="renderField" call-argnr="1" file="gui/cli/brickgame-cli.c" line="141" col="3" my-id="gui/cli/brickgame-cli.c:140:6" my-argnr="1"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="getActionHold" lineNumber="56"/>
+    <functiondecl functionName="unLoadDllSo" lineNumber="84"/>
+    <functiondecl functionName="renderField" lineNumber="103"/>
+    <functiondecl functionName="strtokGames" lineNumber="112"/>
+    <functiondecl functionName="initNcurses" lineNumber="131"/>
+    <functiondecl functionName="renderAside" lineNumber="140"/>
+    <functiondecl functionName="main" lineNumber="150"/>
+    <functioncall functionName="ERR"/>
+    <functioncall functionName="KEY_DOWN"/>
+    <functioncall functionName="KEY_F"/>
+    <functioncall functionName="KEY_LEFT"/>
+    <functioncall functionName="KEY_RIGHT"/>
+    <functioncall functionName="KEY_UP"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="RTLD_LOCAL"/>
+    <functioncall functionName="TRUE"/>
+    <functioncall functionName="curs_set"/>
+    <functioncall functionName="dlclose"/>
+    <functioncall functionName="dlopen"/>
+    <functioncall functionName="dlsym"/>
+    <functioncall functionName="endwin"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="getActionHold"/>
+    <functioncall functionName="getch"/>
+    <functioncall functionName="getcurx"/>
+    <functioncall functionName="getcury"/>
+    <functioncall functionName="initNcurses"/>
+    <functioncall functionName="initscr"/>
+    <functioncall functionName="keypad"/>
+    <functioncall functionName="mvprintw"/>
+    <functioncall functionName="noecho"/>
+    <functioncall functionName="renderAside"/>
+    <functioncall functionName="renderField"/>
+    <functioncall functionName="strtokGames"/>
+    <functioncall functionName="subwin"/>
+    <functioncall functionName="timeout"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="unLoadDllSo"/>
+    <functioncall functionName="waddch"/>
+    <functioncall functionName="wmove"/>
+    <functioncall functionName="wprintw"/>
+    <functioncall functionName="wrefresh"/>
+  </FileInfo>
+  <FileInfo check="ctu">
+<function-call call-id="gui/cli/brickgame-cli.c:56:6" call-funcname="getActionHold" call-argnr="1" file="gui/cli/brickgame-cli.c" line="172" col="40" call-argexpr="&amp;action" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="gui/cli/brickgame-cli.c:56:6" call-funcname="getActionHold" call-argnr="2" file="gui/cli/brickgame-cli.c" line="172" col="40" call-argexpr="&amp;hold" call-argvaluetype="7" call-argvalue="1"/><function-call call-id="gui/cli/brickgame-cli.c:103:6" call-funcname="renderField" call-argnr="1" file="gui/cli/brickgame-cli.c" line="141" col="3" my-id="gui/cli/brickgame-cli.c:140:6" my-argnr="1"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="getActionHold" lineNumber="56"/>
+    <functiondecl functionName="unLoadDllSo" lineNumber="84"/>
+    <functiondecl functionName="renderField" lineNumber="103"/>
+    <functiondecl functionName="strtokGames" lineNumber="112"/>
+    <functiondecl functionName="initNcurses" lineNumber="131"/>
+    <functiondecl functionName="renderAside" lineNumber="140"/>
+    <functiondecl functionName="main" lineNumber="150"/>
+    <functioncall functionName="ERR"/>
+    <functioncall functionName="KEY_DOWN"/>
+    <functioncall functionName="KEY_F"/>
+    <functioncall functionName="KEY_LEFT"/>
+    <functioncall functionName="KEY_RIGHT"/>
+    <functioncall functionName="KEY_UP"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="RTLD_LOCAL"/>
+    <functioncall functionName="TRUE"/>
+    <functioncall functionName="curs_set"/>
+    <functioncall functionName="dlclose"/>
+    <functioncall functionName="dlopen"/>
+    <functioncall functionName="dlsym"/>
+    <functioncall functionName="endwin"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="getActionHold"/>
+    <functioncall functionName="getch"/>
+    <functioncall functionName="getcurx"/>
+    <functioncall functionName="getcury"/>
+    <functioncall functionName="initNcurses"/>
+    <functioncall functionName="initscr"/>
+    <functioncall functionName="keypad"/>
+    <functioncall functionName="mvprintw"/>
+    <functioncall functionName="noecho"/>
+    <functioncall functionName="renderAside"/>
+    <functioncall functionName="renderField"/>
+    <functioncall functionName="strtokGames"/>
+    <functioncall functionName="subwin"/>
+    <functioncall functionName="timeout"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="unLoadDllSo"/>
+    <functioncall functionName="waddch"/>
+    <functioncall functionName="wmove"/>
+    <functioncall functionName="wprintw"/>
+    <functioncall functionName="wrefresh"/>
+  </FileInfo>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;pdcurses.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;pdcurses.h&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="gui\cli\brickgame-cli.c" line="30" column="0"/>
+        </error>
+  <FileInfo check="ctu">
+<function-call call-id="gui/cli/brickgame-cli.c:56:6" call-funcname="getActionHold" call-argnr="1" file="gui/cli/brickgame-cli.c" line="172" col="40" call-argexpr="&amp;action" call-argvaluetype="7" call-argvalue="4"/><function-call call-id="gui/cli/brickgame-cli.c:56:6" call-funcname="getActionHold" call-argnr="2" file="gui/cli/brickgame-cli.c" line="172" col="40" call-argexpr="&amp;hold" call-argvaluetype="7" call-argvalue="1"/><function-call call-id="gui/cli/brickgame-cli.c:103:6" call-funcname="renderField" call-argnr="1" file="gui/cli/brickgame-cli.c" line="141" col="3" my-id="gui/cli/brickgame-cli.c:140:6" my-argnr="1"/>
+  </FileInfo>
+  <FileInfo check="CheckUnusedFunctions">
+    <functiondecl functionName="getActionHold" lineNumber="56"/>
+    <functiondecl functionName="unLoadDllSo" lineNumber="84"/>
+    <functiondecl functionName="renderField" lineNumber="103"/>
+    <functiondecl functionName="strtokGames" lineNumber="112"/>
+    <functiondecl functionName="initNcurses" lineNumber="131"/>
+    <functiondecl functionName="renderAside" lineNumber="140"/>
+    <functiondecl functionName="main" lineNumber="150"/>
+    <functioncall functionName="ERR"/>
+    <functioncall functionName="KEY_DOWN"/>
+    <functioncall functionName="KEY_F"/>
+    <functioncall functionName="KEY_LEFT"/>
+    <functioncall functionName="KEY_RIGHT"/>
+    <functioncall functionName="KEY_UP"/>
+    <functioncall functionName="NULL"/>
+    <functioncall functionName="RTLD_LOCAL"/>
+    <functioncall functionName="TRUE"/>
+    <functioncall functionName="curs_set"/>
+    <functioncall functionName="dlclose"/>
+    <functioncall functionName="dlopen"/>
+    <functioncall functionName="dlsym"/>
+    <functioncall functionName="endwin"/>
+    <functioncall functionName="false"/>
+    <functioncall functionName="getActionHold"/>
+    <functioncall functionName="getch"/>
+    <functioncall functionName="getcurx"/>
+    <functioncall functionName="getcury"/>
+    <functioncall functionName="initNcurses"/>
+    <functioncall functionName="initscr"/>
+    <functioncall functionName="keypad"/>
+    <functioncall functionName="mvprintw"/>
+    <functioncall functionName="noecho"/>
+    <functioncall functionName="renderAside"/>
+    <functioncall functionName="renderField"/>
+    <functioncall functionName="strtokGames"/>
+    <functioncall functionName="subwin"/>
+    <functioncall functionName="timeout"/>
+    <functioncall functionName="true"/>
+    <functioncall functionName="unLoadDllSo"/>
+    <functioncall functionName="waddch"/>
+    <functioncall functionName="wmove"/>
+    <functioncall functionName="wprintw"/>
+    <functioncall functionName="wrefresh"/>
+  </FileInfo>
+</analyzerinfo>

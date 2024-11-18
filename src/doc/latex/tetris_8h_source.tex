@@ -1,0 +1,55 @@
+\doxysection{tetris.\+h}
+\label{tetris_8h_source}\index{brick\_game/tetris/tetris.h@{brick\_game/tetris/tetris.h}}
+\mbox{\hyperlink{tetris_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ *\ "{}THE\ Cola-\/WARE\ LICENSE"{}\ (Revision\ 21):}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ *\ <liliammo@student.21-\/school.ru>\ wrote\ this\ code.}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ *\ As\ long\ as\ you\ complies\ with\ Google\ Style\ guidelines,}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ *\ you\ can\ do\ whatever\ you\ want\ with\ this\ stuff.\ If\ we\ meet}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ *\ someday,\ and\ you\ think\ this\ stuff\ is\ worth\ it,}}
+\DoxyCodeLine{00008\ \textcolor{comment}{\ *\ you\ can\ buy\ me\ a\ Cola\ in\ return.\ \ \ \ \ \ \ \ \ \ \ \ \ \ Vasilii\ Kostin}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ *\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#ifndef\ C7\_BRICKGAME\_BRICK\_GAME\_TETRIS\_TETRIS\_H\_}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ C7\_BRICKGAME\_BRICK\_GAME\_TETRIS\_TETRIS\_H\_}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#include\ "{}brick\_game/brickgame.h"{}}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{void}\ userInput(UserAction\_t\ action,\ \textcolor{keywordtype}{bool}\ hold);}
+\DoxyCodeLine{00072\ GameInfo\_t\ updateCurrentState();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ NELEMS(a)\ (sizeof(a)\ /\ sizeof((a)[0]))}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ BONUS\ 0,\ 1,\ 3,\ 7,\ 15}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ SCORES\_IN\_LEVEL\ 6}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#define\ MAX\_LEVEL\ 10}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{//\ C7\_BRICKGAME\_BRICK\_GAME\_TETRIS\_TETRIS\_H\_}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{void}\ *(*ThreadFunc\_t)(\textcolor{keywordtype}{void}\ *);}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ /*!}}
+\DoxyCodeLine{00099\ \textcolor{comment}{//\ \ *\ @brief\ Главная\ функция\ программы.}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//\ \ *\ }}
+\DoxyCodeLine{00101\ \textcolor{comment}{//\ \ *\ \ \(\backslash\)snippet\ brick\_game/tetris/tetris.c\ Adding\ a\ resource}}
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ \ */}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#define\ \_POSIX\_C\_SOURCE\ 199309L\ \ }\textcolor{comment}{//\ POSIX.1b:\ Real-\/time\ extensions}}
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#include\ <pthread.h>}}
+\DoxyCodeLine{00106\ \textcolor{comment}{//\ \#include\ <stdint.h>}}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#ifndef\ \_UINTPTR\_T\_DEFINED}}
+\DoxyCodeLine{00108\ \textcolor{preprocessor}{\#define\ \_UINTPTR\_T\_DEFINED}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#undef\ uintptr\_t}}
+\DoxyCodeLine{00110\ \ \ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ \textcolor{keywordtype}{long}\ uintptr\_t;}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_UINTPTR\_T\_DEFINED\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{bool}\ update\_fsm\_ptr(\textcolor{keyword}{const}\ uintptr\_t\ who\_init);}
+
+\end{DoxyCode}

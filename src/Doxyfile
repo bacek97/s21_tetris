@@ -1,0 +1,20 @@
+RECURSIVE              = YES
+EXAMPLE_PATH           = brick_game/tetris/
+# INPUT                = brick_game/brickgame.h brick_game/tetris/tetris.h gui/cli/brickgame_cli.c
+OUTPUT_DIRECTORY       = doc
+GENERATE_TREEVIEW      = YES
+INLINE_SOURCES         = NO
+OUTPUT_LANGUAGE        = Russian
+EXCLUDE_PATTERNS       = */brick_game/*/*.c
+EXTRACT_ALL            = NO
+EXTRACT_STATIC         = NO 
+USE_PDFLATEX           = NO
+
+DOT_IMAGE_FORMAT        = svg
+PLANTUML_JAR_PATH       = plantuml-1.2024.7.jar
+# https://sourceforge.net/projects/plantuml.mirror/files/v1.2024.7/plantuml-1.2024.7.jar/download
+HAVE_DOT                = YES
+
+# UML_LOOK              = YES
+# DOT_UML_DETAILS       = YES
+# MAX_DOT_GRAPH_DEPTH   = 0
