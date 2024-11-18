@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "_bdfglmnstuабзикпрстця",
+  0: "bdfglmnstuабзикпрстця",
   1: "g",
   2: "bt",
-  3: "fn",
-  4: "u",
-  5: "_bflmns",
-  6: "d"
+  3: "u",
+  4: "fn",
+  5: "u",
+  6: "bflmns",
+  7: "d"
 };
 
 var indexSectionNames =
@@ -14,10 +15,11 @@ var indexSectionNames =
   0: "all",
   1: "classes",
   2: "files",
-  3: "variables",
-  4: "enums",
-  5: "defines",
-  6: "pages"
+  3: "functions",
+  4: "variables",
+  5: "enums",
+  6: "defines",
+  7: "pages"
 };
 
 var indexSectionLabels =
@@ -25,9 +27,10 @@ var indexSectionLabels =
   0: "Указатель",
   1: "Классы",
   2: "Файлы",
-  3: "Переменные",
-  4: "Перечисления",
-  5: "Макросы",
-  6: "Страницы"
+  3: "Функции",
+  4: "Переменные",
+  5: "Перечисления",
+  6: "Макросы",
+  7: "Страницы"
 };
 

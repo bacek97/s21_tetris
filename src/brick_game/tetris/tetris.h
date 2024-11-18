@@ -89,12 +89,6 @@ GameInfo_t updateCurrentState();
 
 
 
-typedef void *(*ThreadFunc_t)(void *);
-// /*!
-//  * @brief Главная функция программы.
-//  * 
-//  *  \snippet brick_game/tetris/tetris.c Adding a resource
-//  */
 
 // #define _POSIX_C_SOURCE 199309L  // POSIX.1b: Real-time extensions
 #include <pthread.h>
@@ -105,6 +99,11 @@ typedef void *(*ThreadFunc_t)(void *);
   typedef unsigned long long uintptr_t;
 #endif /* _UINTPTR_T_DEFINED */
 
-  bool updateFsmPtr(const uintptr_t WhoInit);
+// /*!
+//  * @brief Главная функция программы.
+//  * 
+//  *  \snippet brick_game/tetris/tetris.c Adding a resource
+//  */
+bool updateFsmPtr(const uintptr_t WhoInit);
 
 #endif  // C7_BRICKGAME_TETRIS_TETRIS_H
