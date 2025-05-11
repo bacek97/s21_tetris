@@ -62,13 +62,13 @@ prefix := /usr/local
 bindir = $(prefix)/bin
 libdir = $(prefix)/lib
 includedir := $(prefix)/include
-INSTALL := tar --strip-components=2 -xzf
+INSTALL := tar --strip-components=2 -xzf  # распаковка архива
 INSTALL_PROGRAM := $(INSTALL)
 INSTALL_DATA := $(INSTALL)
-install: DIST_BrickGame-1.0.tar.gz
+install:
 	mkdir -p $(DESTDIR)$(bindir) $(DESTDIR)$(libdir)
-	$(INSTALL_PROGRAM) $< -C $(DESTDIR)$(bindir) BrickGame-1.0/bin
-	$(INSTALL_DATA) $< -C $(DESTDIR)$(libdir) BrickGame-1.0/lib
+	$(INSTALL_PROGRAM) DIST_BrickGame-1.0.tar.gz -C $(DESTDIR)$(bindir) BrickGame-1.0/bin
+	$(INSTALL_DATA) DIST_BrickGame-1.0.tar.gz -C $(DESTDIR)$(libdir) BrickGame-1.0/lib
 
 # make install DESTDIR= prefix=/mingw64 libdir=/mingw64/bin -n uninstall
 uninstall:
