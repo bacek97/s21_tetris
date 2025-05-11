@@ -76,4 +76,9 @@ typedef struct {
   int pause;
 } GameInfo_t;
 
+GameInfo_t updateCurrentState();
+
+#include <stdbool.h>
+void userInput(UserAction_t action, bool hold);
+
 #endif  // C7_BRICKGAME_BRICKGAME_H

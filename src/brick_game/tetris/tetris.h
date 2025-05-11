@@ -61,11 +61,7 @@ STATE_PAUSED --> STATE_UNLOADED : pthread_cond_wait() == userInput(Terminate)
 */
 
 
-#include <brick_game/brickgame.h>
-
-#include <stdbool.h>
-void userInput(UserAction_t action, bool hold);
-GameInfo_t updateCurrentState();
+#include <brick_game/include/brickgame.h>
 
 /*! Количество элементов массива с фиксированным размером,
  * определённым на момент компиляции */
