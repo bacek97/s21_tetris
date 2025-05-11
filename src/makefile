@@ -13,16 +13,13 @@ all: dist install
 	cd DESTDIR/usr/local/bin/ && LD_LIBRARY_PATH=../lib/ ./brickgame-cli ../lib/libtetris.dll ../lib/libtetris.so && cd -
 
 tetris:
-	make lib_static lib_shared -C brick_game/tetris
+	make lib_shared -C brick_game/tetris # lib_shared
 
 test:
 	make test -C brick_game/tetris
 
 brickgame-cli:
 	make -C gui/cli
-
-
-
 
 ifeq ($(OS),Windows_NT)
 JAVA_4UML := PATH=$$(cygpath -u "C:\ProgramData\Oracle\Java\javapath"):$$PATH
