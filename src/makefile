@@ -13,15 +13,10 @@ all: dist install
 	cd DESTDIR/usr/local/bin/ && LD_LIBRARY_PATH=../lib/ ./brickgame-cli ../lib/libtetris.dll ../lib/libtetris.so && cd -
 
 tetris:
-	CFLAGS=" -I. -fpic" LDFLAGS=" -shared `[[ -v MSYSTEM ]] && echo -static`" make "brick_game/tetris/libtetris.a(brick_game/tetris/tetris.o)" brick_game/tetris/tetris
+	make -C brick_game/tetris
 
-brickgame-cli: tetris
-ifeq ($(OS),Windows_NT)
-#	CFLAGS=" -I." LDLIBS=" -lpdcurses -ldl" 				  make gui/cli/brickgame-cli
-	CFLAGS=" -I." LDLIBS=" -lncursesw -ldl" 				  make gui/cli/brickgame-cli
-else
-	CFLAGS=" -I." LDLIBS=" -lncurses" LDFLAGS=" -Wl,-rpath,." make gui/cli/brickgame-cli
-endif
+brickgame-cli:
+	make -C gui/cli
 
 test: tetris
 	checkmk brick_game/tetris/checkmk.basic_complete.ts > brick_game/tetris/test.c
