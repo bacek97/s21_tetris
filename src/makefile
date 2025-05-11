@@ -6,7 +6,7 @@ CFLAGS += -Wall -Wextra
 # CFLAGS += -Werror
 CFLAGS += -Wpedantic
 # CFLAGS += -g
-# CFLAGS += -march=native
+CFLAGS += -march=native
 CFLAGS += -Ofast
 
 all: dist install
@@ -53,7 +53,7 @@ clean:
 	-rm -r DIST_BrickGame-1.0.tar.gz BrickGame-1.0
 	-rm -r DESTDIR
 	-find . -name "*.gc??" -exec rm -f {} \;
-	-rm -r report lcov.genhtml
+	-rm -r report_from_lcov report_from_geninfo lcov.genhtml geninfo.genhtml
 	-rm -r doc
 
 # https://www.opennet.ru/docs/RUS/coding_standard/standard-5.html
@@ -76,15 +76,13 @@ uninstall:
 	rm $(DESTDIR)$(libdir)/libtetris*
 
 gcov_report:
-	@if [[ -v MSYSTEM && `pwd | LC_ALL=C tr -d '[:print:]'` ]];then echo "ERROR: .gcda files cannot be created in a path containing non-ascii characters" && exit 1 ;fi
-	CFLAGS=" -I. -g --coverage -fprofile-arcs -ftest-coverage" make "brick_game/tetris/libtetris.a(brick_game/tetris/tetris.o)"
-	checkmk brick_game/tetris/checkmk.basic_complete.ts > brick_game/tetris/test.c
-	CFLAGS="-I. --coverage" LDFLAGS="-Lbrick_game/tetris" LDLIBS="-ltetris `pkg-config --cflags --libs --static check`" make brick_game/tetris/test
-	./brick_game/tetris/test  #  /only/ascii/full.path!!!
-	lcov -c  -o lcov.genhtml -d brick_game/tetris  `[[ -v MSYSTEM ]] || echo --no-external`
-	-genhtml -o report lcov.genhtml  # --ignore-errors unmapped
-	-genhtml -o report lcov.genhtml    --ignore-errors unmapped
-
+	make build_test_with_coverage_for_gcov -C brick_game/tetris
+	./brick_game/tetris/test_tetris  #  /only/ascii/full.path!!!
+	lcov -c  -o lcov.genhtml -d .  `[[ -v MSYSTEM ]] || echo --no-external`
+	geninfo  -o geninfo.genhtml --ignore-errors gcov . 
+	-genhtml -o report_from_lcov lcov.genhtml  # --ignore-errors unmapped
+	-genhtml -o report_from_lcov lcov.genhtml    --ignore-errors unmapped
+	-genhtml -o report_from_geninfo geninfo.genhtml 
 
 
 # Dependencies
