@@ -1,8 +1,8 @@
 lib_static:
-	CFLAGS=" -I../../ -fpic" LDFLAGS=" -shared `[[ -v MSYSTEM ]] && echo -static`" make "libtetris.a(tetris.o)"
+	CFLAGS=" -I../../ -fpic" LDFLAGS=" -lpthread -shared `[[ -v MSYSTEM ]] && echo -static`" make "libtetris.a(tetris.o)"
 
 lib_shared:
-	CFLAGS=" -I../../ -fpic" LDFLAGS=" -shared `[[ -v MSYSTEM ]] && echo -static`" make tetris
+	CFLAGS=" -I../../ -fpic" LDFLAGS=" -lpthread -shared `[[ -v MSYSTEM ]] && echo -static`" make tetris
 
 test: lib_static
 	checkmk checkmk.basic_complete.ts > test_tetris.c
