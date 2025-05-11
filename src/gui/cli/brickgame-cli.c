@@ -122,6 +122,17 @@ void renderField(WINDOW *win, int **field, int height, int width) {
   wrefresh(win);
 }
 
+// reversed
+// void renderField(WINDOW *win, int **field, int height, int width) {
+//   for (int y = 0; y < height; ++y) {
+//     for (int x = 0; x < width; ++x) {
+//       // Отображаем строку height - 1 - y на строке y окна
+//       mvwaddch(win, y, x, fixedCharcode(field[height - 1 - y][x]));
+//     }
+//   }
+//   wrefresh(win);
+// }
+
 char *strtokGames(int argc, char *argv[], int req_game) {
   int offset = (req_game == Right ? 1 : -1);
   static int current = 0;
