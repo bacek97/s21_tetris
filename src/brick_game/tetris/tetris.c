@@ -5,11 +5,10 @@
  * worth it, you can buy me a Cola in return.                    Vasilii Kostin
  * ------------------------------------------------------------------------- */
 
-#include <brick_game/tetris/tetris.h>
+#include <brick_game/tetris/include/tetris.h>
 #include <fcntl.h>
 #include <pthread.h>
 #include <unistd.h>
-
 
 enum {
   OLD,

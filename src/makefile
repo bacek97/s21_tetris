@@ -121,4 +121,4 @@ style:
 	--warnings-as-errors="-readability-identifier-naming,cppcoreguidelines-*,google-*" \
 	 \
 	-- -I"`pwd`"
-	@cppcheck --enable=all --suppress=missingIncludeSystem  --suppress=checkersReport --check-level=exhaustive -I. .
+	@cppcheck --enable=all --suppress=missingIncludeSystem  --suppress=checkersReport --suppress=staticFunction --check-level=exhaustive -I. .

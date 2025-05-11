@@ -33,8 +33,8 @@
 
 // foo/src/bar/baz.h
 // #ifndef FOO_BAR_BAZ_H_
-#ifndef C7_BRICKGAME_BRICKGAME_H
-#define C7_BRICKGAME_BRICKGAME_H
+#ifndef BRICKGAME_H
+#define BRICKGAME_H
 
 #define FIELD_ROWS 20  ///< Высота игрового поля
 #define FIELD_COLS 10  ///< Ширина игрового поля
@@ -81,4 +81,4 @@ GameInfo_t updateCurrentState();
 #include <stdbool.h>
 void userInput(UserAction_t action, bool hold);
 
-#endif  // C7_BRICKGAME_BRICKGAME_H
+#endif  // BRICKGAME_H
