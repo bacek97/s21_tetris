@@ -6,18 +6,19 @@ CFLAGS += -Wall -Wextra
 # CFLAGS += -Werror
 CFLAGS += -Wpedantic
 # CFLAGS += -g
-# CFLAGS += -march=native  
+# CFLAGS += -march=native
 CFLAGS += -Ofast
 
 all: dist install
-	cd DESTDIR/usr/local/bin/ && LD_LIBRARY_PATH=../lib/ ./brickgame-cli ../lib/libtetris.dll ../lib/libtetris..so && cd -
+	cd DESTDIR/usr/local/bin/ && LD_LIBRARY_PATH=../lib/ ./brickgame-cli ../lib/libtetris.dll ../lib/libtetris.so && cd -
 
 tetris:
 	CFLAGS=" -I. -fpic" LDFLAGS=" -shared `[[ -v MSYSTEM ]] && echo -static`" make "brick_game/tetris/libtetris.a(brick_game/tetris/tetris.o)" brick_game/tetris/tetris
 
 brickgame-cli: tetris
 ifeq ($(OS),Windows_NT)
-	CFLAGS=" -I." LDLIBS=" -lpdcurses -ldl" 				  make gui/cli/brickgame-cli
+#	CFLAGS=" -I." LDLIBS=" -lpdcurses -ldl" 				  make gui/cli/brickgame-cli
+	CFLAGS=" -I." LDLIBS=" -lncursesw -ldl" 				  make gui/cli/brickgame-cli
 else
 	CFLAGS=" -I." LDLIBS=" -lncurses" LDFLAGS=" -Wl,-rpath,." make gui/cli/brickgame-cli
 endif
@@ -52,6 +53,7 @@ dist: tetris brickgame-cli
 	mkdir -p BrickGame-1.0/{bin,lib,doc}
 	cp gui/cli/brickgame-cli BrickGame-1.0/bin/
 	cp brick_game/tetris/tetris`[[ -v MSYSTEM ]] && echo .exe` "BrickGame-1.0/lib/libtetris`[[ -v MSYSTEM ]] && echo .dll || echo .so`"
+	-strip BrickGame-1.0/{bin,lib}/*
 	-upx BrickGame-1.0/{bin,lib}/*
 	cp `ls /*/*/{libdl.{??,???},lib*curses.{??,???}} 2>/dev/null` BrickGame-1.0/lib/
 	tar -czf DIST_BrickGame-1.0.tar.gz BrickGame-1.0

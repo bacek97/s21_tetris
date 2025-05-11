@@ -23,7 +23,8 @@ enum { BrickgameTimeout = 30 };
  * @endcode
  */
 #ifdef _WIN32
-#include <pdcurses.h>
+// #include <pdcurses.h>
+#include <ncursesw/ncurses.h>
 #else
 #include <ncurses.h>
 #endif
@@ -144,7 +145,7 @@ char *strtokGames(int argc, char *argv[], int req_game) {
 WINDOW *initNcurses() {
   WINDOW *stdscr_local = initscr();
   keypad(stdscr_local, TRUE);  // ncurses read KEY_DOWN codes
-  curs_set(0);
+  curs_set(1);
   noecho();
   // raw();
   return stdscr_local;
