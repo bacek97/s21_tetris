@@ -13,19 +13,14 @@ all: dist install
 	cd DESTDIR/usr/local/bin/ && LD_LIBRARY_PATH=../lib/ ./brickgame-cli ../lib/libtetris.dll ../lib/libtetris.so && cd -
 
 tetris:
-	make -C brick_game/tetris
+	make lib_static lib_shared -C brick_game/tetris
+
+test:
+	make test -C brick_game/tetris
 
 brickgame-cli:
 	make -C gui/cli
 
-test: tetris
-	checkmk brick_game/tetris/checkmk.basic_complete.ts > brick_game/tetris/test.c
-	CFLAGS="-I." LDFLAGS=" -Lbrick_game/tetris" LDLIBS="-ltetris `pkg-config --cflags --libs --static check`" make brick_game/tetris/test
-ifeq ($(shell uname -s), Darwin)
-	bash -c "grep -e 'leaks for' <(CK_FORK=no leaks -q --atExit -- ./brick_game/tetris/test)"
-else                   # Linux, Windows
-	@CK_FORK=no valgrind --vgdb=no --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=RESULT_VALGRIND.txt ./brick_game/tetris/test || ./brick_game/tetris/test
-endif
 
 
 
@@ -56,7 +51,7 @@ dist: tetris brickgame-cli
 
 clean:
 	-rm -r brick_game/tetris/{tetris{.o,},libtetris.a}
-	-rm -r brick_game/tetris/{checkmk.basic_complete.c,test{.c,},highscore.tetris}
+	-rm -r brick_game/tetris/{checkmk.basic_complete.c,test_tetris{.exe,.c,},highscore.tetris}
 	-rm -r gui/cli/brickgame-cli{.exe,}
 	-rm -r DIST_BrickGame-1.0.tar.gz BrickGame-1.0
 	-rm -r DESTDIR
