@@ -100,8 +100,9 @@ gcov_report:
 
 style:
 	-@if [[ "" != `find . \( -name "*.c" -o -name "*.h" \) -exec grep -iL "<.*@.*\..*>" {} +` ]];then echo "`find . \( -name "*.c" -o -name "*.h" \) -exec grep -iL "<.*@.*\..*>" {} +` Every file should contain license boilerplate" && exit 1 ;fi
+	-@if [[ "" != `find . \( -name "*.c" -o -name "*.h" \) -exec grep -l "\b\(u\)\?int\(8\|16\|32\|64\)_t\b" {} +` ]];then echo "`find . \( -name "*.c" -o -name "*.h" \) -exec grep -il "\b\(u\)\?int\(8\|16\|32\|64\)_t\b" {} +` Verter does not support fixed-width integer types" && exit 1 ;fi
 	@find . -name "*.c" -exec clang-format  -style="{BasedOnStyle: Google, InsertBraces: true}" --verbose --Werror --ferror-limit=0 -i {} +;
-	@clang-tidy -fix -header-filter=.*\.h `find . \( -name "*.c" \) -not -name "*test*"` \
+	@clang-tidy -header-filter=.*\.h `find . \( -name "*.c" \) -not -name "*test*"` \
     --format-style="{BasedOnStyle: Google, InsertBraces: true}" -config="{CheckOptions: [ \
 	{key: readability-identifier-naming.VariableCase, value: lower_case}, \
 	{key: readability-identifier-naming.FunctionCase, value: CamelCase}, \
