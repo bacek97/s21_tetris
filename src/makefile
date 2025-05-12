@@ -102,7 +102,7 @@ style:
 # checkmk brick_game/tetris/checkmk.basic_complete.ts > brick_game/tetris/test.c
 	-@if [[ "" != `find . \( -name "*.c" -o -name "*.h" \) -exec grep -iL "<.*@.*\..*>" {} +` ]];then echo "`find . \( -name "*.c" -o -name "*.h" \) -exec grep -iL "<.*@.*\..*>" {} +` Every file should contain license boilerplate" && exit 1 ;fi
 	@find . -name "*.c" -exec clang-format  -style="{BasedOnStyle: Google, InsertBraces: true}" --verbose --Werror --ferror-limit=0 -i {} +;
-	@clang-tidy `find . \( -name "*.c" -o -name "*.h" \) -not -name "*test*"` \
+	@clang-tidy -header-filter=.*\.h `find . \( -name "*.c" \) -not -name "*test*"` \
     --format-style="{BasedOnStyle: Google, InsertBraces: true}" -config="{CheckOptions: [ \
 	{key: readability-identifier-naming.VariableCase, value: lower_case}, \
 	{key: readability-identifier-naming.FunctionCase, value: CamelCase}, \
@@ -122,8 +122,8 @@ style:
 	{key: readability-identifier-naming.EnumConstantPrefix, value: '' }, \
 	{key: readability-identifier-naming.TypedefSuffix, value: _t}, \
 	]}" \
-	-checks="readability-identifier-naming,llvm-header-guard,cppcoreguidelines-*,google-*,llvm-include-order" \
-	--warnings-as-errors="-readability-identifier-naming,cppcoreguidelines-*,google-*" \
+	-checks="*,-llvmlibc*,-altera*,-android*" \
+	--warnings-as-errors="*,-bugprone-easily-swappable-parameters,-readability-identifier-length" \
 	 \
 	-- -I"`pwd`"
 	@cppcheck --enable=all --suppress=missingIncludeSystem  --suppress=checkersReport --suppress=staticFunction --check-level=exhaustive -I. .

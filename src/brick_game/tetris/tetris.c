@@ -5,15 +5,26 @@
  * worth it, you can buy me a Cola in return.                    Vasilii Kostin
  * ------------------------------------------------------------------------- */
 
-#include <brick_game/tetris/include/tetris.h>
+// #define _POSIX_C_SOURCE 199309L
+#include <time.h>
+#ifdef _WIN32
+#include <pthread_time.h>
+#endif
+
+// Системные POSIX-заголовки
 #include <fcntl.h>
+#include <io.h>
 #include <pthread.h>
-#include <unistd.h>
+#include <stdint.h>
+
+// Твои заголовки — после системных
+#include <brick_game/include/brickgame.h>
+#include <brick_game/tetris/include/tetris.h>
 
 enum {
-  OLD,
-  NEW,
-  CountHistory,
+  OLD = 0,
+  NEW = 1,
+  CountHistory = 2,
   NMINO = 4,
   SizeActionsStack = 10,
   CHMOD = 0666,
@@ -234,7 +245,9 @@ void userInput(UserAction_t action, bool hold) {
 
 struct timespec addTimeoutToAbstime(long gravity_tv_nsec) {
   struct timespec abstime = {0};
-  clock_gettime(CLOCK_REALTIME, &abstime);
+  if (clock_gettime(CLOCK_REALTIME, &abstime) != 0) {
+    abstime = (struct timespec){0};
+  }
   abstime.tv_sec += 0 + (abstime.tv_nsec + gravity_tv_nsec) / NsPerS;
   abstime.tv_nsec = (abstime.tv_nsec + gravity_tv_nsec) % NsPerS;
   return abstime;
@@ -256,7 +269,9 @@ void updateGravityTimeout() {
   }
   struct timespec *t1 = &staticPtrTetInfo()->pthread_bundle[0].abstime;
   struct timespec t2;
-  clock_gettime(CLOCK_REALTIME, &t2);
+  if (clock_gettime(CLOCK_REALTIME, &t2) != 0) {
+    t2 = (struct timespec){0};
+  }
   if (compareTimespecLt(*t1, t2)) {
     *t1 = addTimeoutToAbstime(GravityTvNsec[level]);
     staticPtrInfo()->speed = GravityTvNsec[level];
@@ -509,7 +524,7 @@ void userInputStart(bool hold) {
   (void)hold;
   if (!updateFsmPtr((uintptr_t)&userInputStart)) {
     s21Memset(&staticPtrTetInfo()->field.cell[0][0], 0,
-              FIELD_ROWS * FIELD_COLS * sizeof(int));
+              sizeof(int) * FIELD_ROWS * FIELD_COLS);
     staticPtrInfo()->pause = false;
   }
 }

@@ -30,6 +30,7 @@ enum { BrickgameTimeout = 30 };
 #endif
 #include <brick_game/include/brickgame.h>
 #include <dlfcn.h>
+#include <stddef.h>  // NULL
 
 /*!
  * @brief

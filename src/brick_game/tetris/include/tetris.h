@@ -7,6 +7,9 @@
 #ifndef TETRIS_H
 #define TETRIS_H
 
+#include <stdbool.h>
+#include <stdint.h>
+
 /*! @file
  * @brief Диаграмма переходов состояния FSM:
 
@@ -61,7 +64,6 @@ STATE_PAUSED --> STATE_UNLOADED : pthread_cond_wait() == userInput(Terminate)
 */
 
 
-#include <brick_game/include/brickgame.h>
 
 /*! Количество элементов массива с фиксированным размером,
  * определённым на момент компиляции */
@@ -83,18 +85,6 @@ STATE_PAUSED --> STATE_UNLOADED : pthread_cond_wait() == userInput(Terminate)
 //!  Максимальное количество уровней — 10.
 #define MAX_LEVEL 10
 
-
-
-
-// #define _POSIX_C_SOURCE 199309L  // POSIX.1b: Real-time extensions
-#include <pthread.h>
-// #include <stdint.h>
-#ifndef _UINTPTR_T_DEFINED
-#define _UINTPTR_T_DEFINED
-#undef uintptr_t
-  typedef unsigned long long uintptr_t;
-#endif /* _UINTPTR_T_DEFINED */
-
 /*!
  * @brief Функция переключающая состояние конечного автомата.
  * 
@@ -104,6 +94,6 @@ STATE_PAUSED --> STATE_UNLOADED : pthread_cond_wait() == userInput(Terminate)
  * не был найден в белом списке и соответственно
  * не была произведена смена состояния
  */
-bool updateFsmPtr(const uintptr_t WhoInit);
+bool updateFsmPtr(uintptr_t WhoInit);
 
 #endif  // TETRIS_H

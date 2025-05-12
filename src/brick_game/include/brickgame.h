@@ -41,6 +41,7 @@
 #define FNEXT_ROWS 4  ///< Высота поля для отображения следующей фигуры
 #define FNEXT_COLS 4  ///< Ширина поля для отображения следующей фигуры
 
+#include <stdbool.h>
 
 /*! **********************************************************
  * @brief У консоли имеется восемь физических кнопок:
@@ -78,7 +79,6 @@ typedef struct {
 
 GameInfo_t updateCurrentState();
 
-#include <stdbool.h>
 void userInput(UserAction_t action, bool hold);
 
 #endif  // BRICKGAME_H
