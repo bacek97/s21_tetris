@@ -11,7 +11,7 @@ Doxygen documentation {#mainpage}
 
 Для унификации игр управление в них должно быть основано на функциях `userInput(UserAction_t,bool)` и `updateCurrentState()`:
 
-@include brick_game/brickgame.h 
+@include brick_game/include/brickgame.h 
 
 ## Google style
 
