@@ -98,9 +98,21 @@ gcov_report:
 
 # find . -name "*.c" -exec clang-tidy {} -checks="readability-*,bugprone-*,performance-*" -- -I. \;
 
-style:
+style: lint-license lint-verter-types lint-filenames lint-clang
+
+lint-license:
 	-@if [[ "" != `find . \( -name "*.c" -o -name "*.h" \) -exec grep -iL "<.*@.*\..*>" {} +` ]];then echo "`find . \( -name "*.c" -o -name "*.h" \) -exec grep -iL "<.*@.*\..*>" {} +` Every file should contain license boilerplate" && exit 1 ;fi
+
+lint-verter-types:
 	-@if [[ "" != `find . \( -name "*.c" -o -name "*.h" \) -exec grep -l "\b\(u\)\?int\(8\|16\|32\|64\)_t\b" {} +` ]];then echo "`find . \( -name "*.c" -o -name "*.h" \) -exec grep -il "\b\(u\)\?int\(8\|16\|32\|64\)_t\b" {} +` Verter does not support fixed-width integer types" && exit 1 ;fi
+
+lint-filenames:
+	@find . -type f \( -name "*.h" -o -name "*.c" -o -name "*.cc" \) -exec sh -c \
+	'echo "{}" | rev | cut -d/ -f1 | rev | grep -Eq "^[a-z0-9_\-]+\.(h|c|cc)$$" || echo "❌ {} (invalid name)"' \;
+	@find . -type f \( -iname "*test*.h" -o -iname "*test*.c" -o -iname "*test*.cc" \) -exec sh -c \
+	'echo "{}" | rev | cut -d/ -f1 | rev | grep -Eq "^[a-z0-9_\-]+_test\.(h|c|cc)$$" || echo "❌ {} (invalid name *_test.*)"' \;
+
+lint-clang:
 	@find . -name "*.c" -exec clang-format  -style="{BasedOnStyle: Google, InsertBraces: true}" --verbose --Werror --ferror-limit=0 -i {} +;
 	@clang-tidy -header-filter=.*\.h `find . \( -name "*.c" \) -not -name "*test*"` \
     --format-style="{BasedOnStyle: Google, InsertBraces: true}" -config="{CheckOptions: [ \
