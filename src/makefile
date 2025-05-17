@@ -13,7 +13,7 @@ all: dist install
 	cd DESTDIR/usr/local/bin/ && LD_LIBRARY_PATH=../lib/ ./brickgame-cli ../lib/libtetris.dll ../lib/libtetris.so && cd -
 
 tetris:
-	make lib_shared -C brick_game/tetris # lib_shared
+	make lib_shared -C brick_game/tetris # lib_static
 
 test:
 	make test -C brick_game/tetris
