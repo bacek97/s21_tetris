@@ -9,8 +9,8 @@
 // https://libcheck.github.io/check/doc/doxygen/html/check_8h.html
 // https://www.mankier.com/1/checkmk
 #include <stdio.h>
-#include "brick_game/brickgame.h"
-#include "brick_game/tetris/tetris.h"
+#include "brick_game/include/brickgame.h"
+#include "brick_game/tetris/include/tetris.h"
 
 
 
@@ -83,7 +83,7 @@ GameInfo_t info = updateCurrentState();
 size_t i2 = 0;
 for (size_t i = 0; i < NELEMS(exp) - 1; ++i) {
   if (exp[i] != '\n') {
-    res[i] = (info.field[i2 / FIELD_COLS][i2 % FIELD_COLS]) ? '#' : '.';
+    res[i] = (info.field[i2 / FieldCols][i2 % FieldCols]) ? '#' : '.';
     ++i2;
   }
 }

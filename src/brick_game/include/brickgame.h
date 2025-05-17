@@ -36,10 +36,12 @@
 #ifndef BRICKGAME_H
 #define BRICKGAME_H
 
-#define FIELD_ROWS 20  ///< Высота игрового поля
-#define FIELD_COLS 10  ///< Ширина игрового поля
-#define FNEXT_ROWS 4  ///< Высота поля для отображения следующей фигуры
-#define FNEXT_COLS 4  ///< Ширина поля для отображения следующей фигуры
+enum {
+  FieldRows = 20,  ///< Высота игрового поля
+  FieldCols = 10,  ///< Ширина игрового поля
+  FnextRows = 4,   ///< Высота поля для отображения следующей фигуры
+  FnextCols = 4    ///< Ширина поля для отображения следующей фигуры
+};
 
 #include <stdbool.h>
 

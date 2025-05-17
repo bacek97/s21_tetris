@@ -5,31 +5,19 @@
  * worth it, you can buy me a Cola in return.                    Vasilii Kostin
  * ------------------------------------------------------------------------- */
 
-// #define _POSIX_C_SOURCE 199309L
-#include <time.h>
-#ifdef _WIN32
-#include <pthread_time.h>
-#endif
-
-// Системные POSIX-заголовки
-#include <fcntl.h>
-#include <io.h>
-#include <pthread.h>
-#include <stdint.h>
-
 // Твои заголовки — после системных
 #include <brick_game/include/brickgame.h>
 #include <brick_game/tetris/include/tetris.h>
-
-enum {
-  OLD = 0,
-  NEW = 1,
-  CountHistory = 2,
-  NMINO = 4,
-  SizeActionsStack = 10,
-  CHMOD = 0666,
-  NsPerS = 1000000000
-};
+#include <stdbool.h>
+#include <stdint.h>
+// #define _POSIX_C_SOURCE 199309L
+#include <time.h>
+#ifdef _WIN32
+#include <io.h>
+#include <pthread_time.h>
+#endif
+#include <fcntl.h>
+#include <pthread.h>
 
 int writeReadHighscore(int highscore) {
   int fd = open("highscore.tetris", O_RDWR | O_CREAT, CHMOD);
@@ -41,10 +29,6 @@ int writeReadHighscore(int highscore) {
   close(fd);
   return highscore;
 }
-
-void unloadingThr();
-
-void *infinityThr(void *ptr_arg);
 
 void sozdatelUbivatel(bool b) {
   static pthread_t thr_x[4];
@@ -58,89 +42,14 @@ void sozdatelUbivatel(bool b) {
   }
 }
 
-void shiftingAttachingSpawn();
-void spawnFigure();
-void initThr();
-void movingThr();
-void shiftingThr();
-void timerThr();
-void pauseThr();
-void splashscrThr();
-bool getLastActionAndEraseItFromStack(UserAction_t *action, bool *hold);
-void userInputPause(bool hold);
-void userInputTerminate(bool hold);
-void userInputTerminateLeft(bool hold);
-void userInputStart(bool hold);
-void userInputRandomOnly(bool hold);
-void userInputLeft(bool hold);
-void userInputRight(bool hold);
-void userInputDown(bool hold);
-void userInputAction(bool hold);
-void renderLogo();
-struct timespec addTimeoutToAbstime(long gravity_tv_nsec);
-
-void threadUpdateCurrentState();
-void attaching();
-
-typedef struct {
-  int y, x;
-} Point_t;
-
-struct condition_bundle_t {
-  pthread_mutex_t lock;
-  pthread_cond_t cond;
-  struct timespec abstime;
-};
-
-enum states {
-  StateSplashScr,
-  StateMoving,
-  StatePaused,
-  StateUnloading,
-  CountStates,
-  StateNull
-};
-
-bool moveFigure(int **field, UserAction_t signal, Point_t source_figure[NMINO]);
-
-typedef struct {
-  struct condition_bundle_t pthread_bundle[1];
-  enum states fsm_state;
-  struct {
-    int *row[FIELD_ROWS];
-    int cell[FIELD_ROWS][FIELD_COLS];
-  } field;
-  struct {
-    int *row[FNEXT_ROWS];
-    int cell[FNEXT_ROWS][FNEXT_COLS];
-  } next;
-  struct {
-    struct {
-      UserAction_t ua;
-      bool hold;
-      bool new;
-    } stack[SizeActionsStack];
-    unsigned cur_w;
-    unsigned cur_r;
-    unsigned hash_all_pressed_keys;
-  } actions;
-  Point_t *source_figure[CountHistory];
-  struct {
-    int offset_x;
-    int offset_y;
-    unsigned rotate_count : 2;  // rotate % 4
-    Point_t p[NMINO];
-  } figure[CountHistory];
-} TetrisInfo_t;
-
 TetrisInfo_t *staticPtrTetInfo() {
   static TetrisInfo_t tet_info = {0};
   static TetrisInfo_t *ptr_tet_info = NULL;
   if (!ptr_tet_info) {
-    for (int y = 0; y < FIELD_ROWS; ++y) {
+    for (int y = 0; y < FieldRows; ++y) {
       tet_info.field.row[y] = tet_info.field.cell[y];
     }
-    for (int y = 0; y < FNEXT_ROWS; ++y) {
+    for (int y = 0; y < FnextRows; ++y) {
       tet_info.next.row[y] = tet_info.next.cell[y];
     }
     pthread_mutex_init(&tet_info.pthread_bundle[0].lock, NULL);
@@ -177,9 +86,9 @@ void incrementScore(int add) {
   if (staticPtrInfo()->score > staticPtrInfo()->high_score) {
     writeReadHighscore(staticPtrInfo()->high_score = staticPtrInfo()->score);
   }
-  int level = (staticPtrInfo()->score / SCORES_IN_LEVEL) + 1;
-  if (level > MAX_LEVEL) {
-    level = MAX_LEVEL;
+  int level = (staticPtrInfo()->score / ScoresInLevel) + 1;
+  if (level > MaxLevel) {
+    level = MaxLevel;
   }
   staticPtrInfo()->level = level;
 }
@@ -196,10 +105,10 @@ void (*const FsmFuncPtr[CountStates][Action + 1])(bool) = {
 
 bool checkOutOfBorderXAndCollisionY(Point_t p, int **field) {
   bool out_of_border = false;
-  if (FIELD_ROWS <= p.y) {
+  if (FieldRows <= p.y) {
     out_of_border = true;
   }
-  if (p.x < 0 || FIELD_COLS <= p.x) {
+  if (p.x < 0 || FieldCols <= p.x) {
     out_of_border = true;
   }
   bool collision = false;
@@ -260,7 +169,7 @@ bool compareTimespecLt(struct timespec t1, struct timespec t2) {
 
 void updateGravityTimeout() {
   // seconds = (0.8- ((level-1)*0.007) )^(level-1)
-  const long GravityTvNsec[MAX_LEVEL] = {
+  const long GravityTvNsec[MaxLevel] = {
       1000000000 - 1, 793000000, 617796032, 472729120, 355196992,
       262003536,      189677264, 134734704, 93882264,  64151572};
   int level = staticPtrInfo()->level;
@@ -349,7 +258,7 @@ void spawnFigure() {
   moveFigure(staticPtrInfo()->next, Right,
              staticPtrTetInfo()->source_figure[NEW]);
 
-  staticPtrTetInfo()->figure[NEW].offset_x = FIELD_COLS / 2;
+  staticPtrTetInfo()->figure[NEW].offset_x = FieldCols / 2;
 }
 
 bool moveFigure(int **field, UserAction_t signal,
@@ -510,7 +419,7 @@ void renderLogo() {
       "          "
       "          ";
   for (size_t i = 0; i < NELEMS(splashscr) - 1; ++i) {
-    staticPtrInfo()->field[i / FIELD_COLS][i % FIELD_COLS] = splashscr[i] - ' ';
+    staticPtrInfo()->field[i / FieldCols][i % FieldCols] = splashscr[i] - ' ';
   }
 }
 
@@ -524,7 +433,7 @@ void userInputStart(bool hold) {
   (void)hold;
   if (!updateFsmPtr((uintptr_t)&userInputStart)) {
     s21Memset(&staticPtrTetInfo()->field.cell[0][0], 0,
-              sizeof(int) * FIELD_ROWS * FIELD_COLS);
+              sizeof(int) * FieldRows * FieldCols);
     staticPtrInfo()->pause = false;
   }
 }
@@ -575,18 +484,18 @@ void attaching() {
   int **field = staticPtrInfo()->field;
   eraseFigure(field, staticPtrTetInfo()->figure[OLD].p, '#');
   spawnFigure();
-  int yw = FIELD_ROWS - 1;
-  int yr = FIELD_ROWS - 1;
+  int yw = FieldRows - 1;
+  int yr = FieldRows - 1;
   while (yr > 0) {
     int filled_cols = 0;
-    for (int col = 0; col < FIELD_COLS; col++) {
+    for (int col = 0; col < FieldCols; col++) {
       filled_cols += !!field[yr][col];
     }
-    if (filled_cols == FIELD_COLS) {
+    if (filled_cols == FieldCols) {
       --yr;
       continue;
     }
-    for (int copy_col = 0; copy_col < FIELD_COLS; copy_col++) {
+    for (int copy_col = 0; copy_col < FieldCols; copy_col++) {
       field[yw][copy_col] = field[yr][copy_col];
     }
     --yw;

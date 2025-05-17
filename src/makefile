@@ -53,7 +53,7 @@ dist: tetris brickgame-cli
 
 clean:
 	-rm -r brick_game/tetris/{tetris{.o,},libtetris.a}
-	-rm -r brick_game/tetris/{checkmk.basic_complete.c,test_tetris{.exe,.c,},highscore.tetris}
+	-rm -r brick_game/tetris/{checkmk.basic_complete.c,tetris_test{.exe,.c,},highscore.tetris}
 	-rm -r gui/cli/brickgame-cli{.exe,}
 	-rm -r DIST_BrickGame-1.0.tar.gz BrickGame-1.0
 	-rm -r DESTDIR
@@ -108,13 +108,13 @@ lint-verter-types:
 
 lint-filenames:
 	@find . -type f \( -name "*.h" -o -name "*.c" -o -name "*.cc" \) -exec sh -c \
-	'echo "{}" | rev | cut -d/ -f1 | rev | grep -Eq "^[a-z0-9_\-]+\.(h|c|cc)$$" || echo "❌ {} (invalid name)"' \;
+	'echo "{}" | rev | cut -d/ -f1 | rev | grep -Eq "^[a-z0-9_\-]+\.(h|c|cc)" || echo "-X- {} (invalid name)"' \;
 	@find . -type f \( -iname "*test*.h" -o -iname "*test*.c" -o -iname "*test*.cc" \) -exec sh -c \
-	'echo "{}" | rev | cut -d/ -f1 | rev | grep -Eq "^[a-z0-9_\-]+_test\.(h|c|cc)$$" || echo "❌ {} (invalid name *_test.*)"' \;
+	'echo "{}" | rev | cut -d/ -f1 | rev | grep -Eq "^[a-z0-9_\-]+_test\.(h|c|cc)" || echo "-X- {} (invalid name *_test.*)"' \;
 
 lint-clang:
 	@find . -name "*.c" -exec clang-format  -style="{BasedOnStyle: Google, InsertBraces: true}" --verbose --Werror --ferror-limit=0 -i {} +;
-	@clang-tidy -header-filter=.*\.h `find . \( -name "*.c" \) -not -name "*test*"` \
+	@clang-tidy -fix -header-filter=.*\.h `find . \( -name "*.c" \) -not -name "*test*"` \
     --format-style="{BasedOnStyle: Google, InsertBraces: true}" -config="{CheckOptions: [ \
 	{key: readability-identifier-naming.VariableCase, value: lower_case}, \
 	{key: readability-identifier-naming.FunctionCase, value: CamelCase}, \
