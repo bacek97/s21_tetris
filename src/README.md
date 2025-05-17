@@ -34,11 +34,10 @@ Doxygen documentation {#mainpage}
 ## Примечания
 
 ### При разработке я придерживался Google Style Guide со следующими изменениями:
- * The format of the header files #define guards is equal to MacroDefinitionCase: UPPER_CASE and 
- * FunctionCase: camelBack
- * ConstantPrefix: '' 
- * EnumConstantPrefix: '' 
- * TypedefSuffix: _t
+ * FunctionCase: camelBack  // чтобы соответвовать именованию функций updateCurrentState() и userInput() 
+ * ConstantPrefix: ''       // чтобы соответствовать именованию Start, Pause ...
+ * EnumConstantPrefix: ''   // чтобы соответствовать именованию Start, Pause ...
+ * TypedefSuffix: _t        //  чтобы соответствовать именованию GameInfo_t
 
 ### Библиотека игры тетрис реализована с использованием конечного автомата:
 
