@@ -34,11 +34,12 @@ Doxygen documentation {#mainpage}
 ## Примечания
 
 ### При разработке я придерживался Google Style Guide со следующими изменениями:
+```
  * FunctionCase: camelBack  // чтобы соответвовать именованию функций updateCurrentState() и userInput() 
  * ConstantPrefix: ''       // чтобы соответствовать именованию Start, Pause ...
  * EnumConstantPrefix: ''   // чтобы соответствовать именованию Start, Pause ...
  * TypedefSuffix: _t        //  чтобы соответствовать именованию GameInfo_t
-
+```
 ### Библиотека игры тетрис реализована с использованием конечного автомата:
 
 ![Path not correct in Doxygen1](doc/html/inline_umlgraph_1.svg)
