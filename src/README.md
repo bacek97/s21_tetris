@@ -36,10 +36,10 @@ Doxygen documentation {#mainpage}
 
 ### При разработке я придерживался Google Style Guide со следующими изменениями:
 ```
- * FunctionCase: camelBack  // чтобы соответвовать именованию функций updateCurrentState() и userInput() 
- * ConstantPrefix: ''       // чтобы соответствовать именованию Start, Pause ...
- * EnumConstantPrefix: ''   // чтобы соответствовать именованию Start, Pause ...
- * TypedefSuffix: _t        //  чтобы соответствовать именованию GameInfo_t
+ * FunctionCase: camelBack  // чтобы соответствовать именованию функций updateCurrentState() и userInput() 
+ * ConstantPrefix: ''       // чтобы соответствовать именованию констант Start, Pause ...
+ * EnumConstantPrefix: ''   // чтобы соответствовать именованию констант Start, Pause ...
+ * TypedefSuffix: _t        // чтобы соответствовать именованию типа GameInfo_t
 ```
 ### Библиотека игры тетрис реализована с использованием конечного автомата:
 
