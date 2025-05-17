@@ -16,6 +16,7 @@ Doxygen documentation {#mainpage}
 ## Google style
 
 В Google Style Guide для C++ и C рекомендации по стилю именования следующие:
+```
  * Every file should contain license boilerplate
  * All header files should have #define guards to prevent multiple inclusion. The format of the symbol name should be <PROJECT>_<PATH>_<FILE>_H_
  * VariableCase: lower_case
@@ -30,7 +31,7 @@ Doxygen documentation {#mainpage}
  * ConceptCase: CamelCase
  * MemberCase: lower_case
  * ClassMemberSuffix: _
-
+```
 ## Примечания
 
 ### При разработке я придерживался Google Style Guide со следующими изменениями:
