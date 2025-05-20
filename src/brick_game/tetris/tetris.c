@@ -5,7 +5,6 @@
  * worth it, you can buy me a Cola in return.                    Vasilii Kostin
  * ------------------------------------------------------------------------- */
 
-// Твои заголовки — после системных
 #include <brick_game/include/brickgame.h>
 #include <brick_game/tetris/include/tetris.h>
 #include <stdbool.h>
@@ -18,6 +17,7 @@
 #endif
 #include <fcntl.h>
 #include <pthread.h>
+#include <unistd.h>
 
 int writeReadHighscore(int highscore) {
   int fd = open("highscore.tetris", O_RDWR | O_CREAT, CHMOD);
