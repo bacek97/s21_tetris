@@ -1,3 +1,14 @@
+SHELL := /bin/bash
+CC := gcc
+CFLAGS += -std=c11 
+CFLAGS += -Wall -Wextra 
+# CFLAGS += -Werror
+CFLAGS += -Wpedantic
+# CFLAGS += -g
+CFLAGS += -march=native
+CFLAGS += -Oz -funroll-all-loops -floop-unroll-and-jam
+CFLAGS += -fopt-info-optimized -fstack-usage
+LDFLAGS += -Wl,--stack,0  # objdump -p gui/cli/brickgame-cli.exe | grep 'Stack'
 
 all:
 ifeq ($(OS),Windows_NT)

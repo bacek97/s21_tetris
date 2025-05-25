@@ -1,3 +1,15 @@
+SHELL := /bin/bash
+CC := gcc
+CFLAGS += -std=c11 
+CFLAGS += -Wall -Wextra 
+# CFLAGS += -Werror
+CFLAGS += -Wpedantic
+# CFLAGS += -g
+CFLAGS += -march=native
+CFLAGS += -Oz -funroll-all-loops -floop-unroll-and-jam
+CFLAGS += -fopt-info-optimized -fstack-usage
+LDFLAGS += -Wl,--stack,0  # objdump -p brick_game/tetris/tetris.exe | grep 'Stack'
+
 lib_static:
 	CFLAGS=" -I../../ -fpic -D_POSIX_C_SOURCE=199309L" LDFLAGS=" -lpthread -shared `[[ -v MSYSTEM ]] && echo -static`" make "libtetris.a(tetris.o)"
 
