@@ -1,3 +1,7 @@
+# Это файл настроек для Doxygen - генератора документации в форматах dvi, chm, html, pdf
+# с возожностью генерации диаграмм (например для Конечных Автоматов)
+# как при помощи plantuml так и без него (используя язык DOT)
+
 RECURSIVE              = YES
 EXAMPLE_PATH           = brick_game/tetris/
 # INPUT                = brick_game/brickgame.h brick_game/tetris/tetris.h gui/cli/brickgame_cli.c
