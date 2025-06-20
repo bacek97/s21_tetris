@@ -1,0 +1,168 @@
+openapi: '3.0.1'
+info:
+  title: BrickGame
+  version: '1.0'
+  description: BrickGame 3.0 REST API    
+servers:
+  - url: https://localhost:8080/api
+paths:
+  /games:
+    get:
+      summary: Получение списка доступных игр
+      responses:
+        '200':
+          description: Список доступных игр с идентификаторами
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GamesList'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /games/{gameId}:
+    post:
+      summary: Выбор игры
+      parameters:
+        - in: path
+          name: gameId
+          required: true
+          schema: 
+            type: integer
+          description: Идентификатор игры, которая должна быть запущена
+      responses:
+        '200':
+          description: Игра запущена
+        '404':
+          description: Игра с заданным идентификатором не найдена
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '409':
+          description: Пользователь уже запустил другую игру
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /actions:
+    post:
+      summary: Выполнить команду игрока
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserAction'
+      responses:
+        '200':
+          description: Действие выполнено
+        '400':
+          description: Ошибка в теле запроса или пользователь не запустил игру
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+  /state:
+    get:
+      summary: Получение текущего состояния игры
+      responses:
+        '200':
+          description: Состояние игры
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GameState'
+        '400':
+          description: Пользователь не запустил игру
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+        '500':
+          description: Ошибка сервера
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorMessage'
+components:
+  schemas:
+    GamesList:
+      type: object
+      properties:
+        games:
+          type: array
+          description: Список игр
+          items:
+            $ref: '#/components/schemas/GameInfo'
+    GameInfo:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Идентификатор игры
+        name:
+          type: string
+          description: Название игры
+    UserAction:
+      type: object
+      properties:
+        action_id:
+          type: integer
+          description: Идентификатор действия
+        hold:
+          type: boolean
+          description: Флаг, отвечающий за зажатие кнопки
+    GameState:
+      type: object
+      properties:
+        field:
+          type: array
+          description: Матрица, описывающая состояние игрового поля
+          items:
+            type: array
+            description: Одна линия игрового поля
+            items:
+              type: boolean
+              description: Один "пиксель" игрового поля
+        next:
+          type: array
+          description: Поле доп. информации
+          items:
+            type: array
+            items:
+              type: boolean
+        score:
+          type: integer
+          description: Текущее количество очков
+        high_score:
+          type: integer
+          description: Максимальное количество очков
+        level:
+          type: integer
+          description: Поле доп. информации
+        speed:
+          type: integer
+          description: Поле доп. информации
+        pause:
+          type: boolean
+          description: Поле доп. информации
+    ErrorMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Сообщение об ошибке
